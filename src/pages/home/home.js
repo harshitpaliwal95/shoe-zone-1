@@ -2,6 +2,7 @@ import { Navbar } from "../../components/navbar/navbar";
 import mainImg from "../../assets/nike-air-force.jpg";
 import giftImgOne from "../../assets/gift-img-one.jpg";
 import giftImgTwo from "../../assets/gift-img-two.jpg";
+import { ProductCard } from "../../components/card-componet/card";
 
 import "./home.css";
 const home = () => {
@@ -35,153 +36,13 @@ const home = () => {
           </div>
           {/* <!-- popular-card --> */}
           <div className="popular-card">
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
-            <div className="card-component">
-              <div className="card-comp-img">
-                <img
-                  className="card-top-img"
-                  src="assets/jorden-demo.jpeg"
-                  alt="demo img"
-                />
-              </div>
-              <div className="card-badge">new</div>
-              <div className="card-comp-contant">
-                <h2 className="card-h2">Air Jordan 4</h2>
-                <h3 className="card-h3">by Nike</h3>
-                <p className="card-para">
-                  <h5>RS 10,000</h5>
-                  <p className="discount-tag">30% off</p>
-                </p>
-              </div>
-              <div className="card-btn-footer">
-                <button className="btn btn-outline">Add to Cart</button>
-              </div>
-            </div>
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
           </div>
           {/* <!-- popular-card --> */}
           {/* <!-- gift item --> */}
