@@ -22,7 +22,7 @@ const Navbar = () => {
         <nav className="navbar">
           <div className="left-nav">
             <div className="logo">
-              <a href="#">
+              <a>
                 <img src={logo} alt="logo img" />
               </a>
             </div>
@@ -30,16 +30,16 @@ const Navbar = () => {
 
           <ul className="nav-center">
             <li>
-              <a href="#">New Releases</a>
+              <a>New Releases</a>
             </li>
             <li>
-              <a href="#">Men</a>
+              <a>Men</a>
             </li>
             <li>
-              <a href="#">Women</a>
+              <a>Women</a>
             </li>
             <li>
-              <a href="#">Kids</a>
+              <a>Kids</a>
             </li>
           </ul>
           <div className="right-nav">
