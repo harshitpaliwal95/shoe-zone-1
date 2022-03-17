@@ -6,7 +6,7 @@ import giftImgTwo from "../../assets/gift-img-two.jpg";
 import "./home.css";
 const home = () => {
   return (
-    <>
+    <div>
       <Navbar />
       <main>
         <div className="head-offer">
@@ -41,7 +41,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -63,7 +62,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -85,7 +83,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -107,7 +104,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -129,7 +125,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -151,7 +146,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -173,7 +167,6 @@ const home = () => {
                   className="card-top-img"
                   src="assets/jorden-demo.jpeg"
                   alt="demo img"
-                  srcset=""
                 />
               </div>
               <div className="card-badge">new</div>
@@ -229,7 +222,7 @@ const home = () => {
           </div>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 export { home };
