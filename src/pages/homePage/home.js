@@ -3,9 +3,9 @@ import mainImg from "../../assets/nike-air-force.jpg";
 import giftImgOne from "../../assets/gift-img-one.jpg";
 import giftImgTwo from "../../assets/gift-img-two.jpg";
 import { ProductCard } from "../../components/card-componet/card";
-
 import "./home.css";
-const home = () => {
+
+export function Home() {
   return (
     <div>
       <Navbar />
@@ -85,5 +85,4 @@ const home = () => {
       </main>
     </div>
   );
-};
-export { home };
+}
