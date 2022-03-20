@@ -1,6 +1,7 @@
-// import logo from "../../../public/assets/nav-logo.png";
 import logo from "../../assets/nav-logo.png";
-const Navbar = () => {
+import { Link } from "react-router-dom";
+
+function Navbar() {
   return (
     <div>
       <header>
@@ -11,35 +12,39 @@ const Navbar = () => {
             </button>
             <span>|</span>
             <button className="user-ac-btn join-btn">
-              <p>Join Us</p>
+              <Link to="/join">
+                <p>Join Us</p>
+              </Link>
             </button>
             <span>|</span>
             <button className="user-ac-btn sign-btn">
-              <p>Sign In</p>
+              <Link to="/login">
+                <p>Log In</p>
+              </Link>
             </button>
           </div>
         </div>
         <nav className="navbar">
           <div className="left-nav">
             <div className="logo">
-              <a>
+              <Link to="/">
                 <img src={logo} alt="logo img" />
-              </a>
+              </Link>
             </div>
           </div>
 
           <ul className="nav-center">
             <li>
-              <a>New Releases</a>
+              <Link to="/product">New Releases</Link>
             </li>
             <li>
-              <a>Men</a>
+              <Link to="/product">Men</Link>
             </li>
             <li>
-              <a>Women</a>
+              <Link to="/product">Women</Link>
             </li>
             <li>
-              <a>Kids</a>
+              <Link to="/product">Kids</Link>
             </li>
           </ul>
           <div className="right-nav">
@@ -52,10 +57,14 @@ const Navbar = () => {
 
             <div>
               <button className="btn-icon">
-                <i className="bi bi-heart"></i>
+                <Link to="/wishlist">
+                  <i className="bi bi-heart"></i>
+                </Link>
               </button>
               <button className="btn-icon">
-                <i className="bi bi-cart"></i>
+                <Link to="/cart">
+                  <i className="bi bi-cart"></i>
+                </Link>
               </button>
               <button className="btn-icon burger">
                 <i className="bi bi-list"></i>
@@ -66,6 +75,6 @@ const Navbar = () => {
       </header>
     </div>
   );
-};
+}
 
 export { Navbar };
