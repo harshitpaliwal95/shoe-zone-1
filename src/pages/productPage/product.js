@@ -1,10 +1,17 @@
-import { Navbar } from "../../components/navbar/navbar";
+import { Navbar, ProductCard } from "../../components";
+import { Filter } from "./filter";
+import "./product.css";
 
 export function Product() {
   return (
     <div>
       <Navbar />
-      <h1>product list here</h1>
+      <section className="main-box">
+        <Filter />
+        <main className="main-product">
+          <div className="grid-three"></div>
+        </main>
+      </section>
     </div>
   );
 }
