@@ -2,14 +2,13 @@ import { Navbar } from "../../components/navbar/navbar";
 import mainImg from "../../assets/nike-air-force.jpg";
 import giftImgOne from "../../assets/gift-img-one.jpg";
 import giftImgTwo from "../../assets/gift-img-two.jpg";
-import { ProductCard } from "../../components/card-componet/card";
 import "./home.css";
 
 export function Home() {
   return (
     <div>
       <Navbar />
-      <main>
+      <main className="main-home">
         <div className="head-offer">
           <span className="text-medium text-center">
             Free Shipping + Returns, Free Membership, Exclusive Products
@@ -36,13 +35,13 @@ export function Home() {
           </div>
           {/* <!-- popular-card --> */}
           <div className="popular-card">
+            {/* <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
             <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            <ProductCard /> */}
           </div>
           {/* <!-- popular-card --> */}
           {/* <!-- gift item --> */}
