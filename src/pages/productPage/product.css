@@ -9,11 +9,11 @@
   opacity: 0.6;
   color: inherit;
 }
-/* .main-product {
-  margin: auto;
-} */
 .grid-three {
   gap: 5rem;
+}
+.main-product {
+  margin: auto;
 }
 .img-height {
   height: 18rem;
