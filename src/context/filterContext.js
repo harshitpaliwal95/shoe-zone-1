@@ -1,15 +1,18 @@
-import { useContext, useReducer } from "react";
+import { useContext, useReducer, createContext } from "react";
+import { filterReducer } from "../reducer/filterReducer";
+const FilterContext = createContext();
 
-const filterContext = useContext;
-
-const filterContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initial);
+const FilterContextProvider = ({ children }) => {
+  const initialState = {
+    product: [],
+  };
+  const [state, dispatch] = useReducer(filterReducer, initialState);
   return (
-    <filterContext.provider value={{ state, dispatch }}>
+    <FilterContext.Provider value={{ state, dispatch }}>
       {children}
-    </filterContext.provider>
+    </FilterContext.Provider>
   );
 };
 
-const useFilter = useContext(filterContext);
-export { useFilter, filterContextProvider };
+const UseFilter = () => useContext(FilterContext);
+export { UseFilter, FilterContextProvider };
