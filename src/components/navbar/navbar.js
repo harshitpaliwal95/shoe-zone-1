@@ -35,7 +35,7 @@ function Navbar() {
 
           <ul className="nav-center">
             <li>
-              <Link to="/product">New Releases</Link>
+              <Link to="/product">Shop Now</Link>
             </li>
             <li>
               <Link to="/product">Men</Link>
