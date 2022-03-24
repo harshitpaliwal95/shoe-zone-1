@@ -1,6 +1,0 @@
-export const ACTION = {
-  HIGH_TO_LOW: "HIGH_TO_LOW",
-  LOW_TO_HIGH: "LOW_TO_HIGH",
-  GET_DATA: "GET_DATA",
-  CATEGORY: "CATEGORY",
-};

@@ -5,8 +5,14 @@ const FilterContext = createContext();
 const FilterContextProvider = ({ children }) => {
   const initialState = {
     product: [],
-    category: [],
-    shortBy: [],
+    shortBy: null,
+    rating: 1,
+    category: {
+      men: false,
+      women: false,
+      kid: false,
+      latest: false,
+    },
   };
   const [state, dispatch] = useReducer(filterReducer, initialState);
   return (

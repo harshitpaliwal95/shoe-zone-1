@@ -3,6 +3,7 @@ export const filterReducer = (state, action) => {
     product: [],
 
     sortBy: null,
+    rating: "1",
     category: {
       men: false,
       women: false,
@@ -27,7 +28,7 @@ export const filterReducer = (state, action) => {
     case "rating":
       return { ...state, rating: parseInt(action.payload) };
     case "clear":
-      return clearState;
+      return { clearState };
     default:
       return state;
   }

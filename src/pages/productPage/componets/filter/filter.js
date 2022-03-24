@@ -114,7 +114,15 @@ export const Filter = () => {
             }}
           />
         </div>
-        <button className="btn btn-dark filter-btn">Clear</button>
+        <button
+          className="btn btn-dark filter-btn"
+          onClick={() => {
+            console.log("clicked");
+            dispatch({ type: "clear" });
+          }}
+        >
+          Clear
+        </button>
       </div>
     </aside>
   );
