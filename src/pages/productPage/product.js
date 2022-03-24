@@ -2,23 +2,37 @@ import { Navbar } from "../../components";
 import "./product.css";
 import { Filter, ProductCard } from "./componets";
 import { useFilter } from "../../context/filterContext";
-import { FetchData } from "../../fetch/fetch";
-import { useState } from "react";
+import axios, { Axios } from "axios";
+import { useState, useEffect } from "react";
+import {
+  sortData,
+  filterByCategory,
+  latestProduct,
+  ratingSlider,
+} from "../../utils";
 
 export function Product() {
   const { state } = useFilter();
 
-  const filterFunction = () => {
-    if (state.category.length > 1) {
-      return state.category;
-    } else {
-      return state.product;
-    }
-  };
+  const [product, setProduct] = useState([]);
 
-  const shortBy = filterFunction();
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/products");
+        setProduct(response.data.products);
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
+  }, []);
 
-  FetchData();
+  const defaultData = [...product];
+  const newSortdata = sortData(defaultData, state.sortBy);
+  const newCategory = filterByCategory(newSortdata, state.category);
+  const filterData = latestProduct(newCategory, state.category);
+  const newFilterData = ratingSlider(filterData, state.rating);
+
   return (
     <div>
       <Navbar />
@@ -26,7 +40,7 @@ export function Product() {
         <Filter />
         <main className="main-product">
           <div className="grid-three">
-            {filterFunction().map((product) => (
+            {newFilterData.map((product) => (
               <ProductCard product={product} key={product._id} />
             ))}
           </div>
@@ -34,14 +48,4 @@ export function Product() {
       </section>
     </div>
   );
-
-  function newFunction() {
-    return (Mens) => (Women) => (kids) => {
-      if (Mens || Women || kids) {
-        return state.category;
-      } else {
-        return state.product;
-      }
-    };
-  }
 }
