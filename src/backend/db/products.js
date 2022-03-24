@@ -30,6 +30,7 @@ export const products = [
     categoryName: "Men",
     discount: 30,
     latest: true,
+    rating: 3.2,
   },
   {
     _id: uuid(),
@@ -39,6 +40,7 @@ export const products = [
     categoryName: "Men",
     discount: 20,
     latest: false,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -48,6 +50,7 @@ export const products = [
     categoryName: "Men",
     discount: 40,
     latest: true,
+    rating: 2,
   },
   {
     _id: uuid(),
@@ -57,6 +60,7 @@ export const products = [
     categoryName: "Men",
     discount: 10,
     latest: true,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -66,6 +70,7 @@ export const products = [
     categoryName: "Men",
     discount: 15,
     latest: false,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -75,6 +80,7 @@ export const products = [
     categoryName: "Men",
     discount: 10,
     latest: true,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -84,6 +90,7 @@ export const products = [
     categoryName: "Men",
     discount: 12,
     latest: true,
+    rating: 4.5,
   },
   {
     _id: uuid(),
@@ -93,6 +100,7 @@ export const products = [
     categoryName: "Men",
     discount: 25,
     latest: false,
+    rating: 3,
   },
   // womesn category
   {
@@ -103,6 +111,7 @@ export const products = [
     categoryName: "Women",
     discount: 22,
     latest: false,
+    rating: 2,
   },
   {
     _id: uuid(),
@@ -112,6 +121,7 @@ export const products = [
     categoryName: "Women",
     discount: 22,
     latest: true,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -121,6 +131,7 @@ export const products = [
     categoryName: "Women",
     discount: 33,
     latest: true,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -130,6 +141,7 @@ export const products = [
     categoryName: "Women",
     discount: 30,
     latest: false,
+    rating: 5,
   },
   {
     _id: uuid(),
@@ -139,6 +151,7 @@ export const products = [
     categoryName: "Women",
     discount: 26,
     latest: false,
+    rating: 21,
   },
   // kids category
   {
@@ -149,6 +162,7 @@ export const products = [
     categoryName: "Kid",
     discount: 12,
     latest: true,
+    rating: 1,
   },
   {
     _id: uuid(),
@@ -158,6 +172,7 @@ export const products = [
     categoryName: "Kid",
     discount: 32,
     latest: true,
+    rating: 3,
   },
   {
     _id: uuid(),
@@ -167,6 +182,7 @@ export const products = [
     categoryName: "Kid",
     discount: 28,
     latest: false,
+    rating: 4,
   },
   {
     _id: uuid(),
@@ -176,6 +192,7 @@ export const products = [
     categoryName: "Kid",
     discount: 31,
     latest: true,
+    rating: 2,
   },
   {
     _id: uuid(),
@@ -185,5 +202,6 @@ export const products = [
     categoryName: "Kid",
     discount: 27,
     latest: true,
+    rating: 5,
   },
 ];

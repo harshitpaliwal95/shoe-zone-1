@@ -5,6 +5,8 @@ const FilterContext = createContext();
 const FilterContextProvider = ({ children }) => {
   const initialState = {
     product: [],
+    category: [],
+    shortBy: [],
   };
   const [state, dispatch] = useReducer(filterReducer, initialState);
   return (
@@ -14,5 +16,5 @@ const FilterContextProvider = ({ children }) => {
   );
 };
 
-const UseFilter = () => useContext(FilterContext);
-export { UseFilter, FilterContextProvider };
+const useFilter = () => useContext(FilterContext);
+export { useFilter, FilterContextProvider };

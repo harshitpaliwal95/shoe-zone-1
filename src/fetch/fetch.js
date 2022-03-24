@@ -1,14 +1,15 @@
 import axios, { Axios } from "axios";
 import { useEffect } from "react";
-import { UseFilter } from "../context/filterContext";
+import { useFilter } from "../context/filterContext";
+import { ACTION } from "../action/action";
 export const FetchData = () => {
-  const { dispatch } = UseFilter();
+  const { dispatch } = useFilter();
   return useEffect(() => {
     (async () => {
       try {
         const response = await axios.get("/api/products");
         const product = response.data.products;
-        dispatch({ type: "GET_DATA", payload: product });
+        dispatch({ type: ACTION.GET_DATA, payload: product });
       } catch (error) {
         console.log(error.message);
       }
