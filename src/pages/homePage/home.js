@@ -3,6 +3,7 @@ import mainImg from "../../assets/nike-air-force.jpg";
 import giftImgOne from "../../assets/gift-img-one.jpg";
 import giftImgTwo from "../../assets/gift-img-two.jpg";
 import "./home.css";
+import { Link } from "react-router-dom";
 
 export function Home() {
   return (
@@ -14,7 +15,7 @@ export function Home() {
             Free Shipping + Returns, Free Membership, Exclusive Products
           </span>
           <button className="user-ac-btn join-btn">
-            <a href="pages/form-page/joinus.html">Join Us</a>
+            <Link to="/join">Join Us</Link>
           </button>
         </div>
         <div className="home-img card-comp-img">
@@ -27,25 +28,12 @@ export function Home() {
           <div className="card-comp-contant overlap-heading">
             <h2 className="home-img-item-name">NIKE FORCE 1</h2>
             <p className="text-medium">legendary style ready to make moves.</p>
+            <Link to="/product">
+              <button className="btn btn-outline">Shop Now</button>
+            </Link>
           </div>
         </div>
         <div className="popular-section">
-          <div>
-            <span className="heading-lg">Popular Right Now</span>
-          </div>
-          {/* <!-- popular-card --> */}
-          <div className="popular-card">
-            {/* <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
-            <ProductCard /> */}
-          </div>
-          {/* <!-- popular-card --> */}
-          {/* <!-- gift item --> */}
-
           <div className="gift-section">
             <span className="heading-lg">Gift Ideas</span>
           </div>
