@@ -2,7 +2,7 @@ import { Navbar } from "../../components";
 import "./product.css";
 import { Filter, ProductCard } from "./componets";
 import { useFilter } from "../../context/filterContext";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import {
   sortData,

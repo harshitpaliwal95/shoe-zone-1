@@ -16,7 +16,7 @@ export const filterReducer = (state, action) => {
   const { type, payload } = action;
   switch (type) {
     case "sortBy":
-      return { ...state, sortBy: action.payload };
+      return { ...state, sortBy: payload };
     case "Men":
       return { ...state, category: { ...state.category, men: !men } };
     case "Women":
@@ -26,7 +26,7 @@ export const filterReducer = (state, action) => {
     case "latest":
       return { ...state, category: { ...state.category, latest: !latest } };
     case "rating":
-      return { ...state, rating: parseInt(action.payload) };
+      return { ...state, rating: parseInt(payload) };
     case "clear":
       return { clearState };
     default:
