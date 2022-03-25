@@ -15,7 +15,7 @@ export const Filter = () => {
             onChange={() =>
               dispatch({ type: "sortBy", payload: "HIGH_TO_LOW" })
             }
-          />{" "}
+          />
           <label>High To Low</label>
         </div>
 
@@ -26,7 +26,7 @@ export const Filter = () => {
             onChange={() =>
               dispatch({ type: "sortBy", payload: "LOW_TO_HIGH" })
             }
-          />{" "}
+          />
           <label>Low To High</label>
         </div>
         <div className="check-list-item">
@@ -36,7 +36,7 @@ export const Filter = () => {
             onChange={() =>
               dispatch({ type: "sortBy", payload: "LOW_TO_HIGH_RATE" })
             }
-          />{" "}
+          />
           <label>Low To High Rating</label>
         </div>
         <div className="check-list-item">
@@ -46,7 +46,7 @@ export const Filter = () => {
             onChange={() =>
               dispatch({ type: "sortBy", payload: "HIGH_TO_LOW_RATE" })
             }
-          />{" "}
+          />
           <label>High To Low Rating</label>
         </div>
       </div>
@@ -60,7 +60,7 @@ export const Filter = () => {
             onChange={(e) => {
               dispatch({ type: "Men", payload: e.target.checked });
             }}
-          />{" "}
+          />
           Men's
         </div>
 
@@ -72,7 +72,7 @@ export const Filter = () => {
             onChange={(e) => {
               dispatch({ type: "Women", payload: e.target.checked });
             }}
-          />{" "}
+          />
           Women's
         </div>
         <div className="check-list-item">
@@ -83,7 +83,7 @@ export const Filter = () => {
             onChange={(e) => {
               dispatch({ type: "Kid", payload: e.target.checked });
             }}
-          />{" "}
+          />
           Kid's
         </div>
         <div className="check-list-item">
@@ -94,7 +94,7 @@ export const Filter = () => {
             onChange={(e) => {
               dispatch({ type: "latest", payload: e.target.checked });
             }}
-          />{" "}
+          />
           Latest
         </div>
 
