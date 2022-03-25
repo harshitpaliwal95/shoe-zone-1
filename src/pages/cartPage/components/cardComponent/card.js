@@ -2,7 +2,7 @@ import demo from "../../../../assets/nike-air-zoom.webp";
 import "./card.css";
 export const CartCard = () => {
   return (
-    <div className="card-component">
+    <div className="card-component-cart">
       <div className="horizontal-card">
         <div className="card-side-img">
           <img className="card-side-img" src={demo} alt="demo img" />
