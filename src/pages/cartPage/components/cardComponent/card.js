@@ -9,7 +9,6 @@ export const CartCard = () => {
         </div>
         <div className="card-comp-contant">
           <h4 className="card-h2 heading-sm">Nike Air Zoom</h4>
-          <h3 className="card-h3">Size: 43</h3>
           <div className="item-quantity">
             <button className="btn-icon">
               <i className="bi bi-dash"></i>
