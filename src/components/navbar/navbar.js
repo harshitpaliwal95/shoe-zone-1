@@ -1,7 +1,7 @@
 import logo from "../../assets/nav-logo.png";
 import { Link } from "react-router-dom";
 
-function Navbar() {
+const Navbar = () => {
   return (
     <div>
       <header>
@@ -75,6 +75,6 @@ function Navbar() {
       </header>
     </div>
   );
-}
+};
 
 export { Navbar };
