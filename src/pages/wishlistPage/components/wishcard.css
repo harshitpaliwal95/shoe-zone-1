@@ -1,0 +1,8 @@
+/* cancle badge */
+.right-badge {
+  right: 0;
+  background-color: transparent;
+  box-shadow: none;
+  color: black;
+  font-size: 1.4rem;
+}
