@@ -7,10 +7,6 @@ function Navbar() {
       <header>
         <div className="user-ac">
           <div className="rightside">
-            <button className="user-ac-btn help-btn">
-              <p>Help</p>
-            </button>
-            <span>|</span>
             <button className="user-ac-btn join-btn">
               <Link to="/join">
                 <p>Join Us</p>
@@ -21,6 +17,10 @@ function Navbar() {
               <Link to="/login">
                 <p>Log In</p>
               </Link>
+            </button>
+            <span>|</span>
+            <button className="user-ac-btn help-btn">
+              <p>Log Out</p>
             </button>
           </div>
         </div>
