@@ -16,7 +16,7 @@ export const Filter = () => {
               dispatch({ type: "sortBy", payload: "HIGH_TO_LOW" })
             }
           />
-          <label>High To Low</label>
+          <label>High To Low Price</label>
         </div>
 
         <div className="check-list-item">
@@ -27,7 +27,7 @@ export const Filter = () => {
               dispatch({ type: "sortBy", payload: "LOW_TO_HIGH" })
             }
           />
-          <label>Low To High</label>
+          <label>Low To High Price</label>
         </div>
         <div className="check-list-item">
           <input
@@ -97,8 +97,6 @@ export const Filter = () => {
           />
           Latest
         </div>
-
-        <div className="check-list-item">+ More</div>
       </div>
       <div className="list">
         <div className="list-title">RATING</div>

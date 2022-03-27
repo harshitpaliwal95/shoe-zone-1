@@ -1,4 +1,4 @@
-import { Navbar } from "../../components/navbar/navbar";
+import { Navbar } from "../../components";
 import mainImg from "../../assets/nike-air-force.jpg";
 import giftImgOne from "../../assets/gift-img-one.jpg";
 import giftImgTwo from "../../assets/gift-img-two.jpg";
