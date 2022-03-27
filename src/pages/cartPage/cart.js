@@ -1,5 +1,5 @@
 import { CartCard, PriceBox } from "./components";
-import { Navbar } from "../../components/navbar/navbar";
+import { Navbar } from "../../components";
 import "./cart.css";
 export function Cart() {
   return (
