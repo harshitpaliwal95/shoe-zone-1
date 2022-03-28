@@ -1,33 +1,65 @@
+import { useFilter } from "../../../../context/filterContext";
 import "./card.css";
 export const ProductCard = ({ product }) => {
+  const {
+    _id,
+    image,
+    latest,
+    productName,
+    categoryName,
+    price,
+    discount,
+    rating,
+  } = product;
+  const { dispatch } = useFilter();
   return (
     <div className="card-component">
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"
-          src={product.image}
+          src={image}
           alt="product img"
         />
       </div>
-      {product.latest ? <div className="card-badge">new</div> : <></>}
+      {latest ? <div className="card-badge">new</div> : <></>}
       <div className="card-comp-contant">
-        <h2 className="card-h2">{product.productName}</h2>
-        <p>{product.categoryName}'s Shoes</p>
+        <h2 className="card-h2">{productName}</h2>
+        <p>{categoryName}'s Shoes</p>
         <h3 className="card-h3">by Nike</h3>
         <p className="card-para"></p>
-        <h4>RS {product.price}</h4>
-        <p className="discount-tag">{product.discount}% off</p>
+        <h4>RS {price}</h4>
+        <p className="discount-tag">{discount}% off</p>
         <div className="rating-box rating-box-sm rating-comp">
           <div>
-            {product.rating} <i className="bi bi-star-fill"></i>
+            {rating} <i className="bi bi-star-fill"></i>
           </div>
           <div>|</div>
           <div>5</div>
         </div>
       </div>
       <div className="card-btn_footer">
-        <button className="btn btn-outline">Add to Cart</button>
-        <button className="btn btn-outline">Add to wishlist</button>
+        <button
+          className="btn btn-outline"
+          onClick={() =>
+            dispatch({
+              type: "ADD_TO_CART",
+              payload: { product },
+            })
+          }
+        >
+          Add to Cart
+        </button>
+        <button
+          className="btn btn-outline"
+          onClick={() =>
+            dispatch({
+              type: "ADD_TO_WISHLIST",
+              payload: { product },
+            })
+          }
+        >
+          Add to wishlist
+        </button>
       </div>
     </div>
   );

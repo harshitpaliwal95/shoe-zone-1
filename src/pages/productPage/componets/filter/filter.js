@@ -1,8 +1,10 @@
+import { useState } from "react";
 import { useFilter } from "../../../../context/filterContext";
 import "./filter.css";
 export const Filter = () => {
   const { state, dispatch } = useFilter();
   const { men, women, kid, latest } = state;
+  const [isCheck, setIsCheck] = useState(false);
   return (
     <aside className="side-bar">
       <div className="sidebar-title heading-lg">FILTERS</div>
@@ -116,7 +118,7 @@ export const Filter = () => {
           className="btn btn-dark filter-btn"
           onClick={() => {
             console.log("clicked");
-            dispatch({ type: "" });
+            dispatch({ type: "clear" });
           }}
         >
           Clear
