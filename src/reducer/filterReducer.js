@@ -12,7 +12,7 @@ export const filterReducer = (state, action) => {
     },
   };
 
-  const { men, women, kid, latest } = state;
+  const { men, women, kid, latest } = state.category;
   const { type, payload } = action;
   switch (type) {
     case "sortBy":
