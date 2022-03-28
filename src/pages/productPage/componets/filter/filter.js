@@ -3,101 +3,116 @@ import { useFilter } from "../../../../context/filterContext";
 import "./filter.css";
 export const Filter = () => {
   const { state, dispatch } = useFilter();
-  const { men, women, kid, latest } = state;
-  const [isCheck, setIsCheck] = useState(false);
+  const { men, women, kid, latest } = state.category;
   return (
     <aside className="side-bar">
       <div className="sidebar-title heading-lg">FILTERS</div>
       <div className="list">
         <div className="list-title">SORT BY</div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="radio"
-            onChange={() =>
-              dispatch({ type: "sortBy", payload: "HIGH_TO_LOW" })
-            }
-          />
-          <label>High To Low Price</label>
+          <label>
+            <input
+              name="checkbox"
+              type="radio"
+              onChange={() =>
+                dispatch({ type: "sortBy", payload: "HIGH_TO_LOW" })
+              }
+            />
+            High To Low Price
+          </label>
         </div>
 
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="radio"
-            onChange={() =>
-              dispatch({ type: "sortBy", payload: "LOW_TO_HIGH" })
-            }
-          />
-          <label>Low To High Price</label>
+          <label>
+            <input
+              name="checkbox"
+              type="radio"
+              onChange={() =>
+                dispatch({ type: "sortBy", payload: "LOW_TO_HIGH" })
+              }
+            />
+            Low To High Price
+          </label>
         </div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="radio"
-            onChange={() =>
-              dispatch({ type: "sortBy", payload: "LOW_TO_HIGH_RATE" })
-            }
-          />
-          <label>Low To High Rating</label>
+          <label>
+            <input
+              name="checkbox"
+              type="radio"
+              onChange={() =>
+                dispatch({ type: "sortBy", payload: "LOW_TO_HIGH_RATE" })
+              }
+            />
+            Low To High Rating
+          </label>
         </div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="radio"
-            onChange={() =>
-              dispatch({ type: "sortBy", payload: "HIGH_TO_LOW_RATE" })
-            }
-          />
-          <label>High To Low Rating</label>
+          <label>
+            <input
+              name="checkbox"
+              type="radio"
+              onChange={() =>
+                dispatch({ type: "sortBy", payload: "HIGH_TO_LOW_RATE" })
+              }
+            />
+            High To Low Rating
+          </label>
         </div>
       </div>
       <div className="list">
         <div className="list-title">CATEGORIES</div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="checkbox"
-            checked={men}
-            onChange={(e) => {
-              dispatch({ type: "Men", payload: e.target.checked });
-            }}
-          />
-          Men's
+          <label>
+            <input
+              name="checkbox"
+              type="checkbox"
+              checked={men}
+              onChange={(e) => {
+                dispatch({ type: "Men", payload: e.target.checked });
+              }}
+            />
+            Men's
+          </label>
         </div>
 
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="checkbox"
-            checked={women}
-            onChange={(e) => {
-              dispatch({ type: "Women", payload: e.target.checked });
-            }}
-          />
-          Women's
+          <label>
+            <input
+              name="checkbox"
+              type="checkbox"
+              checked={women}
+              onChange={(e) => {
+                dispatch({ type: "Women", payload: e.target.checked });
+              }}
+            />
+            Women's
+          </label>
         </div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="checkbox"
-            checked={kid}
-            onChange={(e) => {
-              dispatch({ type: "Kid", payload: e.target.checked });
-            }}
-          />
-          Kid's
+          <label>
+            <input
+              name="checkbox"
+              type="checkbox"
+              checked={kid}
+              onChange={(e) => {
+                dispatch({ type: "Kid", payload: e.target.checked });
+              }}
+            />
+            Kid's
+          </label>
         </div>
         <div className="check-list-item">
-          <input
-            name="checkbox"
-            type="checkbox"
-            checked={latest}
-            onChange={(e) => {
-              dispatch({ type: "latest", payload: e.target.checked });
-            }}
-          />
-          Latest
+          <label>
+            <input
+              name="checkbox"
+              type="checkbox"
+              checked={latest}
+              onChange={(e) => {
+                dispatch({ type: "latest", payload: e.target.checked });
+              }}
+            />
+            Latest
+          </label>
         </div>
       </div>
       <div className="list">
@@ -117,7 +132,6 @@ export const Filter = () => {
         <button
           className="btn btn-dark filter-btn"
           onClick={() => {
-            console.log("clicked");
             dispatch({ type: "clear" });
           }}
         >
