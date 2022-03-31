@@ -1,18 +1,20 @@
 import { Navbar } from "../../components";
+import { useWishlist } from "../../context/wishlistContext";
 import { WishCard } from "./components/wishCard";
 
 export function Wishlist() {
+  const { wishlistState } = useWishlist();
+  const { wishlist } = wishlistState;
+
   return (
     <div>
       <Navbar />
-      <section class="main-box">
-        <main class="main-product">
-          <div class="grid-three">
-            <WishCard />
-            <WishCard />
-            <WishCard />
-            <WishCard />
-            <WishCard />
+      <section className="main-box">
+        <main className="main-product">
+          <div className="grid-three">
+            {wishlist.map((product) => (
+              <WishCard product={product} key={product._id} />
+            ))}
           </div>
         </main>
       </section>
