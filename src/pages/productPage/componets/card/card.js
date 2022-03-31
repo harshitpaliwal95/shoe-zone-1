@@ -1,6 +1,6 @@
 import { useCart } from "../../../../context/cartContext";
-import { useFilter } from "../../../../context/filterContext";
 import { useWishlist } from "../../../../context/wishlistContext";
+import { Link } from "react-router-dom";
 import "./card.css";
 export const ProductCard = ({ product }) => {
   const {
@@ -15,7 +15,6 @@ export const ProductCard = ({ product }) => {
   } = product;
   const { wishlistDispatch } = useWishlist();
   const { cartDispatch } = useCart();
-  const { dispatch } = useFilter();
   return (
     <div key={_id} className="card-component">
       <div className="card-comp-img img-height">
@@ -42,17 +41,19 @@ export const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="card-btn_footer">
-        <button
-          className="btn btn-outline"
-          onClick={() =>
-            cartDispatch({
-              type: "ADD_TO_CART",
-              payload: product,
-            })
-          }
-        >
-          Add to Cart
-        </button>
+        <Link to="">
+          <button
+            className="btn btn-outline"
+            onClick={() => {
+              cartDispatch({
+                type: "ADD_TO_CART",
+                payload: product,
+              });
+            }}
+          >
+            Add To Cart
+          </button>
+        </Link>
         <button
           className="btn btn-outline"
           onClick={() =>

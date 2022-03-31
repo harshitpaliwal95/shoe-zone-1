@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useFilter } from "../../../../context/filterContext";
 import "./filter.css";
 export const Filter = () => {

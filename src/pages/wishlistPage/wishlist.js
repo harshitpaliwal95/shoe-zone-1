@@ -20,7 +20,7 @@ export function Wishlist() {
               <p className="heading-lg emptybox-text">Save Some Cool Shoes</p>
               <p className="heading-lg emptybox-text">Wishlist is empty</p>
               <div>
-                <img src={empty_img}></img>
+                <img src={empty_img} alt="empty wishlist img"></img>
               </div>
             </div>
           )}

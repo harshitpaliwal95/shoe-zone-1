@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useCart } from "../../../../context/cartContext";
 
 export const PriceBox = () => {

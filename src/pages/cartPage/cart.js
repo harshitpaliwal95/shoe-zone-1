@@ -15,7 +15,7 @@ export function Cart() {
             <p className="heading-lg emptybox-text">Heyyy!! Heyyy!! Heyyy!!</p>
             <p className="heading-lg emptybox-text">Shop Now Cart is Empty</p>
             <div>
-              <img src={empty_img}></img>
+              <img src={empty_img} alt="empty cart img"></img>
             </div>
           </div>
         )}
