@@ -1,6 +1,5 @@
 import { useCart } from "../../../../context/cartContext";
 import { useWishlist } from "../../../../context/wishlistContext";
-import { Link } from "react-router-dom";
 import "./card.css";
 export const ProductCard = ({ product }) => {
   const {
