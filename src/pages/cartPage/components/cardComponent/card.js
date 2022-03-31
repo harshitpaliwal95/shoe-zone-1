@@ -1,11 +1,13 @@
-import demo from "../../../../assets/nike-air-zoom.webp";
 import { useCart } from "../../../../context/cartContext";
 import { useWishlist } from "../../../../context/wishlistContext";
 import "./card.css";
 export const CartCard = ({ product }) => {
   const { _id, image, productName, price } = product;
+
   const { cartDispatch } = useCart();
+
   const { wishlistDispatch } = useWishlist();
+
   return (
     <div className="card-component-cart">
       <div className="horizontal-card">
@@ -16,11 +18,21 @@ export const CartCard = ({ product }) => {
           <h4 className="card-h2 heading-sm">{productName}</h4>
           <div className="item-quantity">
             <button className="btn-icon">
-              <i className="bi bi-dash"></i>
+              <i
+                className="bi bi-dash"
+                onClick={() =>
+                  cartDispatch({ type: "DIC_ITEM", payload: product })
+                }
+              ></i>
             </button>
-            <div className="quantity-number">1</div>
+            <div className="quantity-number">{product.quantity}</div>
             <button className="btn-icon">
-              <i className="bi bi-plus"></i>
+              <i
+                className="bi bi-plus"
+                onClick={() =>
+                  cartDispatch({ type: "INC_ITEM", payload: product })
+                }
+              ></i>
             </button>
           </div>
           <h5 className="price-tag">RS: {price}</h5>

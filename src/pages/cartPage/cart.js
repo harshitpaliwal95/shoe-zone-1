@@ -1,5 +1,6 @@
 import { CartCard, PriceBox } from "./components";
 import { Navbar } from "../../components";
+import { empty_img } from "../../assets";
 import "./cart.css";
 import { useCart } from "../../context/cartContext";
 export function Cart() {
@@ -9,6 +10,15 @@ export function Cart() {
     <div>
       <Navbar />
       <section className="main-box">
+        {cartItem.length === 0 && (
+          <div className="empty-box">
+            <p className="heading-lg emptybox-text">Heyyy!! Heyyy!! Heyyy!!</p>
+            <p className="heading-lg emptybox-text">Shop Now Cart is Empty</p>
+            <div>
+              <img src={empty_img}></img>
+            </div>
+          </div>
+        )}
         <main className="checkout-layout grid-two">
           <div className="cart-item">
             {cartItem.map((product) => (
@@ -16,7 +26,7 @@ export function Cart() {
             ))}
           </div>
           <div className="checkout-box">
-            <PriceBox />
+            {cartItem.length > 0 && <PriceBox />}
           </div>
         </main>
       </section>
