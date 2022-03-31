@@ -41,19 +41,18 @@ export const ProductCard = ({ product }) => {
         </div>
       </div>
       <div className="card-btn_footer">
-        <Link to="">
-          <button
-            className="btn btn-outline"
-            onClick={() => {
-              cartDispatch({
-                type: "ADD_TO_CART",
-                payload: product,
-              });
-            }}
-          >
-            Add To Cart
-          </button>
-        </Link>
+        <button
+          className="btn btn-outline"
+          onClick={() => {
+            cartDispatch({
+              type: "ADD_TO_CART",
+              payload: product,
+            });
+          }}
+        >
+          Add To Cart
+        </button>
+
         <button
           className="btn btn-outline"
           onClick={() =>
