@@ -4,3 +4,13 @@
 .card-component-cart {
   box-shadow: var(--main-box-shadow);
 }
+.empty-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.emptybox-text {
+  padding: 1rem;
+}
