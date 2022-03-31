@@ -1,4 +1,6 @@
+import { useCart } from "../../../../context/cartContext";
 import { useFilter } from "../../../../context/filterContext";
+import { useWishlist } from "../../../../context/wishlistContext";
 import "./card.css";
 export const ProductCard = ({ product }) => {
   const {
@@ -11,9 +13,11 @@ export const ProductCard = ({ product }) => {
     discount,
     rating,
   } = product;
+  const { wishlistDispatch } = useWishlist();
+  const { cartDispatch } = useCart();
   const { dispatch } = useFilter();
   return (
-    <div className="card-component">
+    <div key={_id} className="card-component">
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"
@@ -41,9 +45,9 @@ export const ProductCard = ({ product }) => {
         <button
           className="btn btn-outline"
           onClick={() =>
-            dispatch({
+            cartDispatch({
               type: "ADD_TO_CART",
-              payload: { product },
+              payload: product,
             })
           }
         >
@@ -52,9 +56,9 @@ export const ProductCard = ({ product }) => {
         <button
           className="btn btn-outline"
           onClick={() =>
-            dispatch({
+            wishlistDispatch({
               type: "ADD_TO_WISHLIST",
-              payload: { product },
+              payload: product,
             })
           }
         >

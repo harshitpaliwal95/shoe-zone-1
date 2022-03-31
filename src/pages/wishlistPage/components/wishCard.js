@@ -1,3 +1,4 @@
+import { useCart } from "../../../context/cartContext";
 import { useWishlist } from "../../../context/wishlistContext";
 import "./wishcard.css";
 export const WishCard = ({ product }) => {
@@ -12,6 +13,7 @@ export const WishCard = ({ product }) => {
     rating,
   } = product;
   const { wishlistDispatch } = useWishlist();
+  const { cartDispatch } = useCart();
   return (
     <div className="card-component">
       <div className="card-comp-img img-height">
@@ -38,7 +40,14 @@ export const WishCard = ({ product }) => {
         </div>
       </div>
       <div className="card-btn_footer">
-        <button className="btn btn-outline">Add to Cart</button>
+        <button
+          className="btn btn-outline"
+          onClick={() =>
+            cartDispatch({ type: "ADD_TO_CART", payload: product })
+          }
+        >
+          Add to Cart
+        </button>
         <button
           className="btn btn-outline"
           onClick={() =>
