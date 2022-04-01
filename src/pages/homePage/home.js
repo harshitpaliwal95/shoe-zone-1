@@ -1,7 +1,5 @@
-import { Navbar } from "../../components/navbar/navbar";
-import mainImg from "../../assets/nike-air-force.jpg";
-import giftImgOne from "../../assets/gift-img-one.jpg";
-import giftImgTwo from "../../assets/gift-img-two.jpg";
+import { Navbar } from "../../components";
+import { mainImg, giftImgOne, giftImgTwo } from "../../assets";
 import "./home.css";
 import { Link } from "react-router-dom";
 

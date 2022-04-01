@@ -1,18 +1,6 @@
 export const filterReducer = (state, action) => {
-  const clearState = {
-    product: [],
-
-    sortBy: null,
-    rating: "1",
-    category: {
-      men: false,
-      women: false,
-      kid: false,
-      latest: false,
-    },
-  };
-
-  const { men, women, kid, latest } = state;
+  const { category } = state;
+  const { men, women, kid, latest } = state.category;
   const { type, payload } = action;
   switch (type) {
     case "sortBy":
@@ -28,7 +16,10 @@ export const filterReducer = (state, action) => {
     case "rating":
       return { ...state, rating: parseInt(payload) };
     case "clear":
-      return { clearState };
+      for (let cates in category) {
+        category[cates] = false;
+      }
+      return { ...state, sortBy: null, rating: "1" };
     default:
       return state;
   }
