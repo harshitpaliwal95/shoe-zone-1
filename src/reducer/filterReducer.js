@@ -5,17 +5,17 @@ export const filterReducer = (state, { type, payload }) => {
   } = state;
 
   switch (type) {
-    case "sortBy":
+    case "SHORT_BY":
       return { ...state, sortBy: payload };
-    case "Men":
+    case "MAN":
       return { ...state, category: { ...state.category, men: !men } };
-    case "Women":
+    case "WOMEN":
       return { ...state, category: { ...state.category, women: !women } };
-    case "Kid":
+    case "KID":
       return { ...state, category: { ...state.category, kid: !kid } };
-    case "latest":
+    case "LATEST":
       return { ...state, category: { ...state.category, latest: !latest } };
-    case "rating":
+    case "RATING":
       return { ...state, rating: parseInt(payload) };
     case "FILTER":
       return {
@@ -28,7 +28,7 @@ export const filterReducer = (state, { type, payload }) => {
           latest: payload === "latest",
         },
       };
-    case "clear":
+    case "CLEAR":
       for (let cates in category) {
         category[cates] = false;
       }

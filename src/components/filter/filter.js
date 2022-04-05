@@ -2,7 +2,7 @@ import { useFilter } from "../../context/filterContext";
 import "./filter.css";
 export const Filter = () => {
   const { state, dispatch } = useFilter();
-  const { men, women, kid, latest } = state.category;
+  const { man, women, kid, latest } = state.category;
   return (
     <aside className="side-bar">
       <div className="sidebar-title heading-lg">FILTERS</div>
@@ -14,7 +14,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "sortBy", payload: "HIGH_TO_LOW" })
+                dispatch({ type: "SHORT_BY", payload: "HIGH_TO_LOW" })
               }
             />
             High To Low Price
@@ -27,7 +27,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "sortBy", payload: "LOW_TO_HIGH" })
+                dispatch({ type: "SHORT_BY", payload: "LOW_TO_HIGH" })
               }
             />
             Low To High Price
@@ -39,7 +39,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "sortBy", payload: "LOW_TO_HIGH_RATE" })
+                dispatch({ type: "SHORT_BY", payload: "LOW_TO_HIGH_RATE" })
               }
             />
             Low To High Rating
@@ -51,7 +51,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "sortBy", payload: "HIGH_TO_LOW_RATE" })
+                dispatch({ type: "SHORT_BY", payload: "HIGH_TO_LOW_RATE" })
               }
             />
             High To Low Rating
@@ -65,12 +65,12 @@ export const Filter = () => {
             <input
               name="checkbox"
               type="checkbox"
-              checked={men}
+              checked={man}
               onChange={(e) => {
-                dispatch({ type: "Men", payload: e.target.checked });
+                dispatch({ type: "MAN", payload: e.target.checked });
               }}
             />
-            Men's
+            Man's
           </label>
         </div>
 
@@ -81,7 +81,7 @@ export const Filter = () => {
               type="checkbox"
               checked={women}
               onChange={(e) => {
-                dispatch({ type: "Women", payload: e.target.checked });
+                dispatch({ type: "WOMEN", payload: e.target.checked });
               }}
             />
             Women's
@@ -94,7 +94,7 @@ export const Filter = () => {
               type="checkbox"
               checked={kid}
               onChange={(e) => {
-                dispatch({ type: "Kid", payload: e.target.checked });
+                dispatch({ type: "KID", payload: e.target.checked });
               }}
             />
             Kid's
@@ -107,7 +107,7 @@ export const Filter = () => {
               type="checkbox"
               checked={latest}
               onChange={(e) => {
-                dispatch({ type: "latest", payload: e.target.checked });
+                dispatch({ type: "LATEST", payload: e.target.checked });
               }}
             />
             Latest
@@ -124,14 +124,14 @@ export const Filter = () => {
             max="5"
             defaultValue="1"
             onChange={(e) => {
-              dispatch({ type: "rating", payload: parseInt(e.target.value) });
+              dispatch({ type: "RATING", payload: parseInt(e.target.value) });
             }}
           />
         </div>
         <button
           className="btn btn-dark filter-btn"
           onClick={() => {
-            dispatch({ type: "clear" });
+            dispatch({ type: "CLEAR" });
           }}
         >
           Clear
