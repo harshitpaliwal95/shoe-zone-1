@@ -1,9 +1,23 @@
-import { Navbar } from "../../components";
+import { Navbar, ProductCard } from "../../components";
 import { mainImg, giftImgOne, giftImgTwo } from "../../assets";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import "./home.css";
 import { Link } from "react-router-dom";
 
 export function Home() {
+  const [product, setProduct] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await axios.get("/api/products");
+        setProduct(response.data.products);
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
+  }, []);
   return (
     <div>
       <Navbar />
@@ -32,6 +46,14 @@ export function Home() {
           </div>
         </div>
         <div className="popular-section">
+          <div>
+            <span class="heading-lg">Popular Right Now</span>
+          </div>
+          <div class="popular-card">
+            {product.slice(4, 9).map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
+          </div>
           <div className="gift-section">
             <span className="heading-lg">Gift Ideas</span>
           </div>
