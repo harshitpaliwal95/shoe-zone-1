@@ -1,6 +1,5 @@
-import { Navbar } from "../../components";
+import { Navbar, ProductCard, Filter } from "../../components";
 import "./product.css";
-import { Filter, ProductCard } from "./componets";
 import { useFilter } from "../../context/filterContext";
 import axios from "axios";
 import { useState, useEffect } from "react";

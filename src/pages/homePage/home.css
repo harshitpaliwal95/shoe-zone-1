@@ -60,7 +60,15 @@
 .gift-section {
   margin: 2rem 0.4rem;
 }
-
+.alert {
+  position: fixed;
+  right: 40px;
+  top: 120px;
+  z-index: 111;
+  background-color: var(--black);
+  padding: 1rem;
+  border: none;
+}
 @media only screen and (max-width: 600px) {
   main {
     margin-top: 5rem;

@@ -1,8 +1,5 @@
-const itemInCart = (cart, id) => {
-  return cart.find((cartInItem) => cartInItem._id === id);
+const findItem = (data, id) => {
+  return data.find((data) => data._id === id);
 };
 
-const itemInWishList = (wishlist, id) => {
-  return wishlist.find((cartInItem) => cartInItem._id === id);
-};
-export { itemInCart, itemInWishList };
+export { findItem };

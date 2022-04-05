@@ -1,9 +1,10 @@
-import { useCart } from "../../../../context/cartContext";
-import { useWishlist } from "../../../../context/wishlistContext";
+import { useCart } from "../../context/cartContext";
+import { useWishlist } from "../../context/wishlistContext";
 import { useNavigate } from "react-router-dom";
-import { itemInCart, itemInWishList } from "../../../../utils/findItem";
+import { findItem } from "../../utils";
 import "./card.css";
-import { useState } from "react";
+import { Alert } from "..";
+import { useState, useEffect } from "react";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -17,6 +18,7 @@ export const ProductCard = ({ product }) => {
     rating,
   } = product;
 
+  const [alert, setAlert] = useState({ alert: false, alertText: "" });
   const [cartBtnText, setCartBtnText] = useState("Add To Cart");
   const [wishlistBtnText, setWishlistBtnText] = useState("Add To Wishlist");
 
@@ -31,29 +33,44 @@ export const ProductCard = ({ product }) => {
 
   const navigate = useNavigate();
 
-  const isItemInCart = itemInCart(cartItem, _id);
+  const isItemInCart = findItem(cartItem, _id);
   const addToCartHandler = (product) => {
-    isItemInCart
-      ? navigate("/cart")
-      : cartDispatch({
-          type: "ADD_TO_CART",
-          payload: product,
-        });
+    if (isItemInCart) {
+      navigate("/cart");
+    } else {
+      cartDispatch({
+        type: "ADD_TO_CART",
+        payload: product,
+      });
+      setAlert({ alert: true, alertText: "Product Added To Cart" });
+    }
     setCartBtnText("Go To Cart");
   };
 
-  const isItemInWishlist = itemInWishList(wishlist, _id);
+  const isItemInWishlist = findItem(wishlist, _id);
   const addToWishlistHandler = (product) => {
-    isItemInWishlist
-      ? navigate("/wishlist")
-      : wishlistDispatch({
-          type: "ADD_TO_WISHLIST",
-          payload: product,
-        });
+    if (isItemInWishlist) {
+      navigate("/wishlist");
+    } else {
+      wishlistDispatch({
+        type: "ADD_TO_WISHLIST",
+        payload: product,
+      });
+
+      setAlert({ alert: true, alertText: "Product Added To Wishlist" });
+    }
     setWishlistBtnText("Go To Wishist");
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert({ alert: false });
+    }, 1500);
+  }, [alert.alert]);
+
   return (
     <div key={_id} className="card-component">
+      {alert.alert && <Alert text={alert.alertText} />}
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"
