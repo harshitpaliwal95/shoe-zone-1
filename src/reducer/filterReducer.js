@@ -1,7 +1,9 @@
-export const filterReducer = (state, action) => {
-  const { category } = state;
-  const { men, women, kid, latest } = state.category;
-  const { type, payload } = action;
+export const filterReducer = (state, { type, payload }) => {
+  const {
+    category,
+    category: { men, women, kid, latest },
+  } = state;
+
   switch (type) {
     case "sortBy":
       return { ...state, sortBy: payload };
@@ -15,6 +17,17 @@ export const filterReducer = (state, action) => {
       return { ...state, category: { ...state.category, latest: !latest } };
     case "rating":
       return { ...state, rating: parseInt(payload) };
+    case "FILTER":
+      return {
+        ...state,
+        category: {
+          ...state.category,
+          men: payload === "men",
+          women: payload === "women",
+          kid: payload === "kid",
+          latest: payload === "latest",
+        },
+      };
     case "clear":
       for (let cates in category) {
         category[cates] = false;

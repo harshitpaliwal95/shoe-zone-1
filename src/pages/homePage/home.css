@@ -2,6 +2,9 @@
 .main-home {
   margin-top: 8rem;
 }
+.nav-center li {
+  cursor: pointer;
+}
 
 .head-offer {
   background-color: var(--light-gray-v2);
