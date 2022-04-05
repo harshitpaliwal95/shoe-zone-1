@@ -1,6 +1,6 @@
-import { Navbar, ProductCard } from "../../components";
+import { Navbar } from "../../components";
 import { useWishlist } from "../../context/wishlistContext";
-// import { WishCard } from "./components/wishCard";
+import { WishCard } from "./components/wishCard";
 import { empty_img } from "../../assets";
 
 export function Wishlist() {
@@ -26,7 +26,7 @@ export function Wishlist() {
           )}
           <div className="grid-three">
             {wishlist.map((product) => (
-              <ProductCard product={product} key={product._id} />
+              <WishCard product={product} key={product._id} />
             ))}
           </div>
         </main>

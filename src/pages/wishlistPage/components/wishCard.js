@@ -1,5 +1,8 @@
-import { useCart } from "../../../context/cartContext";
-import { useWishlist } from "../../../context/wishlistContext";
+import { useCart, useWishlist } from "../../../context";
+import { findItem } from "../../../utils";
+
+import { useState, useEffect } from "react";
+import { Alert } from "../../../components";
 import "./wishcard.css";
 export const WishCard = ({ product }) => {
   const {
@@ -13,9 +16,34 @@ export const WishCard = ({ product }) => {
     rating,
   } = product;
   const { wishlistDispatch } = useWishlist();
-  const { cartDispatch } = useCart();
+  const {
+    cartState: { cartItem },
+    cartDispatch,
+  } = useCart();
+
+  const [alert, setAlert] = useState({ alert: false, alertText: "" });
+
+  const isItemInCart = findItem(cartItem, _id);
+  const addToCartHandler = (product) => {
+    if (isItemInCart) {
+      setAlert({ alert: true, alertText: "Product Already in your cart" });
+    } else {
+      cartDispatch({
+        type: "ADD_TO_CART",
+        payload: product,
+      });
+      setAlert({ alert: true, alertText: "Product Added To Cart" });
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAlert({ alert: false });
+    }, 1500);
+  }, [alert.alert]);
   return (
     <div className="card-component">
+      {alert.alert && <Alert text={alert.alertText} />}
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"
@@ -42,11 +70,9 @@ export const WishCard = ({ product }) => {
       <div className="card-btn_footer">
         <button
           className="btn btn-outline"
-          onClick={() =>
-            cartDispatch({ type: "ADD_TO_CART", payload: product })
-          }
+          onClick={() => addToCartHandler(product)}
         >
-          Add to Cart
+          Add To Cart
         </button>
         <button
           className="btn btn-outline"

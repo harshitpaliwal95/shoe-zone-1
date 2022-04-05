@@ -1,3 +1,3 @@
-export { CartProvider } from "./cartContext";
+export { useCart, CartProvider } from "./cartContext";
 export { FilterContextProvider } from "./filterContext";
-export { WishlistProvider } from "./wishlistContext";
+export { useWishlist, WishlistProvider } from "./wishlistContext";
