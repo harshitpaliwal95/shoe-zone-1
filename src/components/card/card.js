@@ -1,9 +1,9 @@
-import { useCart } from "../../../../context/cartContext";
-import { useWishlist } from "../../../../context/wishlistContext";
+import { useCart } from "../../context/cartContext";
+import { useWishlist } from "../../context/wishlistContext";
 import { useNavigate } from "react-router-dom";
-import { itemInCart, itemInWishList } from "../../../../utils/findItem";
+import { findItem } from "../../utils";
 import "./card.css";
-import { Alert } from "../../../../components";
+import { Alert } from "..";
 import { useState, useEffect } from "react";
 
 export const ProductCard = ({ product }) => {
@@ -33,7 +33,7 @@ export const ProductCard = ({ product }) => {
 
   const navigate = useNavigate();
 
-  const isItemInCart = itemInCart(cartItem, _id);
+  const isItemInCart = findItem(cartItem, _id);
   const addToCartHandler = (product) => {
     if (isItemInCart) {
       navigate("/cart");
@@ -47,7 +47,7 @@ export const ProductCard = ({ product }) => {
     setCartBtnText("Go To Cart");
   };
 
-  const isItemInWishlist = itemInWishList(wishlist, _id);
+  const isItemInWishlist = findItem(wishlist, _id);
   const addToWishlistHandler = (product) => {
     if (isItemInWishlist) {
       navigate("/wishlist");

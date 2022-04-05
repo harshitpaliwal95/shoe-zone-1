@@ -1,4 +1,4 @@
-import { useFilter } from "../../../../context/filterContext";
+import { useFilter } from "../../context/filterContext";
 import "./filter.css";
 export const Filter = () => {
   const { state, dispatch } = useFilter();
