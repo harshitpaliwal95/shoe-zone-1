@@ -14,7 +14,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "SHORT_BY", payload: "HIGH_TO_LOW" })
+                dispatch({ type: "SORT_BY", payload: "HIGH_TO_LOW" })
               }
             />
             High To Low Price
@@ -27,7 +27,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "SHORT_BY", payload: "LOW_TO_HIGH" })
+                dispatch({ type: "SORT_BY", payload: "LOW_TO_HIGH" })
               }
             />
             Low To High Price
@@ -39,7 +39,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "SHORT_BY", payload: "LOW_TO_HIGH_RATE" })
+                dispatch({ type: "SORT_BY", payload: "LOW_TO_HIGH_RATE" })
               }
             />
             Low To High Rating
@@ -51,7 +51,7 @@ export const Filter = () => {
               name="checkbox"
               type="radio"
               onChange={() =>
-                dispatch({ type: "SHORT_BY", payload: "HIGH_TO_LOW_RATE" })
+                dispatch({ type: "SORT_BY", payload: "HIGH_TO_LOW_RATE" })
               }
             />
             High To Low Rating

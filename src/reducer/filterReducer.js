@@ -5,7 +5,7 @@ export const filterReducer = (state, { type, payload }) => {
   } = state;
 
   switch (type) {
-    case "SHORT_BY":
+    case "SORT_BY":
       return { ...state, sortBy: payload };
     case "MAN":
       return { ...state, category: { ...state.category, men: !men } };

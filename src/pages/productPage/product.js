@@ -21,7 +21,7 @@ export function Product() {
         const response = await axios.get("/api/products");
         setProduct(response.data.products);
       } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
       }
     })();
   }, []);
