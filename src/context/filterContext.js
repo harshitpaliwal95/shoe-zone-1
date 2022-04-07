@@ -8,7 +8,7 @@ const FilterContextProvider = ({ children }) => {
     shortBy: null,
     rating: 1,
     category: {
-      men: false,
+      man: false,
       women: false,
       kid: false,
       latest: false,

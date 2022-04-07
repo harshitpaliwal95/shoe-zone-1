@@ -1,7 +1,11 @@
 import logo from "../../assets/nav-logo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useFilter } from "../../context/filterContext";
 
 const Navbar = () => {
+  const { dispatch } = useFilter();
+
+  const navigate = useNavigate();
   return (
     <div>
       <header>
@@ -34,17 +38,37 @@ const Navbar = () => {
           </div>
 
           <ul className="nav-center">
-            <li>
-              <Link to="/product">Shop Now</Link>
+            <li
+              onClick={() => {
+                navigate("/product");
+                dispatch({ type: "FILTER", payload: "" });
+              }}
+            >
+              Shop Now
             </li>
-            <li>
-              <Link to="/product">Men</Link>
+            <li
+              onClick={() => {
+                navigate("/product");
+                dispatch({ type: "FILTER", payload: "men" });
+              }}
+            >
+              Men
             </li>
-            <li>
-              <Link to="/product">Women</Link>
+            <li
+              onClick={() => {
+                navigate("/product");
+                dispatch({ type: "FILTER", payload: "women" });
+              }}
+            >
+              Women
             </li>
-            <li>
-              <Link to="/product">Kids</Link>
+            <li
+              onClick={() => {
+                navigate("/product");
+                dispatch({ type: "FILTER", payload: "kid" });
+              }}
+            >
+              Kids
             </li>
           </ul>
           <div className="right-nav">

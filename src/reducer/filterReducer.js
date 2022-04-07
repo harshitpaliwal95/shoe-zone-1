@@ -1,21 +1,34 @@
-export const filterReducer = (state, action) => {
-  const { category } = state;
-  const { men, women, kid, latest } = state.category;
-  const { type, payload } = action;
+export const filterReducer = (state, { type, payload }) => {
+  const {
+    category,
+    category: { men, women, kid, latest },
+  } = state;
+
   switch (type) {
-    case "sortBy":
+    case "SHORT_BY":
       return { ...state, sortBy: payload };
-    case "Men":
+    case "MAN":
       return { ...state, category: { ...state.category, men: !men } };
-    case "Women":
+    case "WOMEN":
       return { ...state, category: { ...state.category, women: !women } };
-    case "Kid":
+    case "KID":
       return { ...state, category: { ...state.category, kid: !kid } };
-    case "latest":
+    case "LATEST":
       return { ...state, category: { ...state.category, latest: !latest } };
-    case "rating":
+    case "RATING":
       return { ...state, rating: parseInt(payload) };
-    case "clear":
+    case "FILTER":
+      return {
+        ...state,
+        category: {
+          ...state.category,
+          men: payload === "men",
+          women: payload === "women",
+          kid: payload === "kid",
+          latest: payload === "latest",
+        },
+      };
+    case "CLEAR":
       for (let cates in category) {
         category[cates] = false;
       }
