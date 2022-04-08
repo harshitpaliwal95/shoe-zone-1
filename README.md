@@ -2,6 +2,9 @@
 
 <p align="center">Get some cool shoes now</p>
 
+### preview
+
+![Webp net-gifmaker](https://user-images.githubusercontent.com/60725346/154816548-49151d58-d58d-42f9-be7e-fee5bc9b0b94.gif)
 
 ## Live link
   https://shoe-zone-ecom.netlify.app/
