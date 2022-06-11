@@ -12,11 +12,8 @@ export function Cart() {
       <section className="main-box">
         {cartItem.length === 0 && (
           <div className="empty-box">
-            <p className="heading-lg emptybox-text">Heyyy!! Heyyy!! Heyyy!!</p>
-            <p className="heading-lg emptybox-text">Shop Now Cart is Empty</p>
-            <div>
-              <img src={empty_img} alt="empty cart img"></img>
-            </div>
+            <p className="heading-lg emptybox-text">Your cart is empty</p>
+            <i className="bi bi-cart-x"></i>
           </div>
         )}
         <main className="checkout-layout grid-two">

@@ -57,6 +57,16 @@
 .save-lable {
   padding: 0.5rem 0 0.5rem 0;
 }
+.emptybox-text {
+  color: gray;
+}
+.empty-box i {
+  font-size: 5rem;
+  color: gray;
+}
+.empty-box {
+  justify-content: start;
+}
 
 @media only screen and (max-width: 600px) {
   .cart-item {
