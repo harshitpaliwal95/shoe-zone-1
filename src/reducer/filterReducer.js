@@ -1,14 +1,16 @@
 export const filterReducer = (state, { type, payload }) => {
   const {
     category,
-    category: { men, women, kid, latest },
+    category: { man, women, kid, latest },
   } = state;
 
   switch (type) {
-    case "SHORT_BY":
+    case "DEFAULT":
+      return { ...state, product: [...payload] };
+    case "SORT_BY":
       return { ...state, sortBy: payload };
     case "MAN":
-      return { ...state, category: { ...state.category, men: !men } };
+      return { ...state, category: { ...state.category, man: !man } };
     case "WOMEN":
       return { ...state, category: { ...state.category, women: !women } };
     case "KID":
@@ -22,11 +24,17 @@ export const filterReducer = (state, { type, payload }) => {
         ...state,
         category: {
           ...state.category,
-          men: payload === "men",
+          man: payload === "man",
           women: payload === "women",
           kid: payload === "kid",
           latest: payload === "latest",
         },
+      };
+    case "SEARCH":
+      console.log(payload, state.product);
+      return {
+        ...state,
+        searchBy: payload,
       };
     case "CLEAR":
       for (let cates in category) {

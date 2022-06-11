@@ -1,6 +1,6 @@
 import { Navbar, ProductCard } from "../../components";
 import { mainImg, giftImgOne, giftImgTwo } from "../../assets";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./home.css";
 import { Link } from "react-router-dom";
@@ -14,10 +14,16 @@ export function Home() {
         const response = await axios.get("/api/products");
         setProduct(response.data.products);
       } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
       }
     })();
   }, []);
+  const scrollEl = useRef(null);
+
+  const scroll = (scrollOffset) => {
+    scrollEl.current.scrollLeft += scrollOffset;
+  };
+
   return (
     <div>
       <Navbar />
@@ -47,10 +53,22 @@ export function Home() {
         </div>
         <div className="popular-section">
           <div>
-            <span class="heading-lg">Popular Right Now</span>
+            <span className="heading-lg">Popular Right Now</span>
           </div>
-          <div class="popular-card">
-            {product.slice(4, 9).map((product) => (
+          <div className="popular-card" ref={scrollEl}>
+            <div className="scroll-btn">
+              <button
+                className="btn-icon scroller"
+                onClick={() => scroll(-200)}
+              >
+                <i className="bi bi-arrow-left"></i>
+              </button>
+
+              <button className="btn-icon scroller" onClick={() => scroll(200)}>
+                <i className="bi bi-arrow-right"></i>
+              </button>
+            </div>
+            {product.slice(4, 12).map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
           </div>

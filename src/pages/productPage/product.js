@@ -8,10 +8,11 @@ import {
   filterByCategory,
   latestProduct,
   ratingSlider,
+  searchBy,
 } from "../../utils";
 
 export function Product() {
-  const { state } = useFilter();
+  const { state, dispatch } = useFilter();
 
   const [product, setProduct] = useState([]);
 
@@ -19,18 +20,19 @@ export function Product() {
     (async () => {
       try {
         const response = await axios.get("/api/products");
+        dispatch({ type: "DEFAULT", payload: response.data.products });
         setProduct(response.data.products);
       } catch (error) {
-        console.log(error.message);
+        console.error(error.message);
       }
     })();
   }, []);
 
-  const defaultData = [...product];
-  const newSortdata = sortData(defaultData, state.sortBy);
+  const newSortdata = sortData(product, state.sortBy);
   const newCategory = filterByCategory(newSortdata, state.category);
   const filterData = latestProduct(newCategory, state.category);
   const newFilterData = ratingSlider(filterData, state.rating);
+  const searchProduct = searchBy(newFilterData, state.searchBy);
 
   return (
     <div>
@@ -39,7 +41,7 @@ export function Product() {
         <Filter />
         <main className="main-product">
           <div className="grid-three">
-            {newFilterData.map((product) => (
+            {searchProduct.map((product) => (
               <ProductCard product={product} key={product._id} />
             ))}
           </div>

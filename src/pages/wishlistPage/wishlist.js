@@ -14,14 +14,8 @@ export function Wishlist() {
         <main className="main-product">
           {wishlist.length === 0 && (
             <div className="empty-box">
-              <p className="heading-lg emptybox-text">
-                Heyyy!! Heyyy!! Heyyy!!
-              </p>
-              <p className="heading-lg emptybox-text">Save Some Cool Shoes</p>
               <p className="heading-lg emptybox-text">Wishlist is empty</p>
-              <div>
-                <img src={empty_img} alt="empty wishlist img"></img>
-              </div>
+              <i className="bi bi-emoji-neutral"></i>
             </div>
           )}
           <div className="grid-three">

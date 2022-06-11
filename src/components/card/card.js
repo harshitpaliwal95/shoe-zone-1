@@ -34,6 +34,14 @@ export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const isItemInCart = findItem(cartItem, _id);
+  useEffect(() => {
+    if (isItemInCart) {
+      setCartBtnText("Go To Cart");
+    }
+    if (isItemInWishlist) {
+      setWishlistBtnText("Go To Wishist");
+    }
+  }, [isItemInCart]);
   const addToCartHandler = (product) => {
     if (isItemInCart) {
       navigate("/cart");

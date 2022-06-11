@@ -6,6 +6,7 @@ const FilterContextProvider = ({ children }) => {
   const initialState = {
     product: [],
     shortBy: null,
+    searchBy: null,
     rating: 1,
     category: {
       man: false,
