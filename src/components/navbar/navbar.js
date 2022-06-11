@@ -49,10 +49,10 @@ const Navbar = () => {
             <li
               onClick={() => {
                 navigate("/product");
-                dispatch({ type: "FILTER", payload: "men" });
+                dispatch({ type: "FILTER", payload: "man" });
               }}
             >
-              Men
+              Man
             </li>
             <li
               onClick={() => {
@@ -73,7 +73,13 @@ const Navbar = () => {
           </ul>
           <div className="right-nav">
             <div className="search-navbar">
-              <input type="text" placeholder="Search" />
+              <input
+                type="text"
+                placeholder="Search"
+                onChange={(e) =>
+                  dispatch({ type: "SEARCH", payload: e.target.value })
+                }
+              />
               <button className="btn-icon">
                 <i className="bi bi-search"></i>
               </button>

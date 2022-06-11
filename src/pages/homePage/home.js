@@ -47,9 +47,9 @@ export function Home() {
         </div>
         <div className="popular-section">
           <div>
-            <span class="heading-lg">Popular Right Now</span>
+            <span className="heading-lg">Popular Right Now</span>
           </div>
-          <div class="popular-card">
+          <div className="popular-card">
             {product.slice(4, 9).map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
