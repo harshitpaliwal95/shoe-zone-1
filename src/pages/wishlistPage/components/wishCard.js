@@ -4,6 +4,7 @@ import { findItem } from "../../../utils";
 import { useState, useEffect } from "react";
 import { Alert } from "../../../components";
 import "./wishcard.css";
+import { useNavigate } from "react-router-dom";
 export const WishCard = ({ product }) => {
   const {
     _id,
@@ -22,16 +23,26 @@ export const WishCard = ({ product }) => {
   } = useCart();
 
   const [alert, setAlert] = useState({ alert: false, alertText: "" });
+  const [btnText, setBtnText] = useState("Add To Cart");
+  const navigate = useNavigate();
 
   const isItemInCart = findItem(cartItem, _id);
+  useEffect(() => {
+    if (isItemInCart) {
+      setBtnText("Go To Cart");
+    }
+  }, [isItemInCart]);
+
   const addToCartHandler = (product) => {
     if (isItemInCart) {
       setAlert({ alert: true, alertText: "Product Already in your cart" });
+      navigate("/cart");
     } else {
       cartDispatch({
         type: "ADD_TO_CART",
         payload: product,
       });
+      setBtnText("Go To Cart");
       setAlert({ alert: true, alertText: "Product Added To Cart" });
     }
   };
@@ -72,7 +83,7 @@ export const WishCard = ({ product }) => {
           className="btn btn-outline"
           onClick={() => addToCartHandler(product)}
         >
-          Add To Cart
+          {btnText}
         </button>
         <button
           className="btn btn-outline"
