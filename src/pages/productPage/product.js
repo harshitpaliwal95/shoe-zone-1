@@ -1,4 +1,4 @@
-import { Navbar, ProductCard, Filter } from "../../components";
+import { Navbar, ProductCard, Filter, Loader } from "../../components";
 import "./product.css";
 import { useFilter } from "../../context/filterContext";
 import axios from "axios";
@@ -13,22 +13,27 @@ import {
 
 export function Product() {
   const { state, dispatch } = useFilter();
-
-  const [product, setProduct] = useState([]);
+  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
     (async () => {
+      setLoader(true);
       try {
         const response = await axios.get("/api/products");
-        dispatch({ type: "DEFAULT", payload: response.data.products });
-        setProduct(response.data.products);
+
+        if (response) {
+          setTimeout(() => {
+            dispatch({ type: "DEFAULT", payload: response.data.products });
+            setLoader(false);
+          }, 800);
+        }
       } catch (error) {
         console.error(error.message);
       }
     })();
   }, []);
 
-  const newSortdata = sortData(product, state.sortBy);
+  const newSortdata = sortData(state.product, state.sortBy);
   const newCategory = filterByCategory(newSortdata, state.category);
   const filterData = latestProduct(newCategory, state.category);
   const newFilterData = ratingSlider(filterData, state.rating);
@@ -40,6 +45,7 @@ export function Product() {
       <section className="main-box">
         <Filter />
         <main className="main-product">
+          {loader && <Loader />}
           <div className="grid-three">
             {searchProduct.map((product) => (
               <ProductCard product={product} key={product._id} />
