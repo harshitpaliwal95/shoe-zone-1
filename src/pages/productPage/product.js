@@ -45,7 +45,7 @@ export function Product() {
       <section className="main-box">
         <Filter />
         <main className="main-product">
-          {loader && <Loader />}
+          {newFilterData.length === 0 && <Loader />}
           <div className="grid-three">
             {searchProduct.map((product) => (
               <ProductCard product={product} key={product._id} />
