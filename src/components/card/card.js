@@ -5,6 +5,7 @@ import { findItem } from "../../utils";
 import "./card.css";
 import { Alert } from "..";
 import { useState, useEffect } from "react";
+import { useAuth } from "../../context";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -30,44 +31,60 @@ export const ProductCard = ({ product }) => {
     cartState: { cartItem },
     cartDispatch,
   } = useCart();
+  const {
+    auth: { isAuth },
+  } = useAuth();
 
   const navigate = useNavigate();
 
   const isItemInCart = findItem(cartItem, _id);
   useEffect(() => {
-    if (isItemInCart) {
-      setCartBtnText("Go To Cart");
-    }
-    if (isItemInWishlist) {
-      setWishlistBtnText("Go To Wishist");
-    }
-  }, [isItemInCart]);
-  const addToCartHandler = (product) => {
-    if (isItemInCart) {
-      navigate("/cart");
+    if (isAuth) {
+      if (isItemInCart) {
+        setCartBtnText("Go To Cart");
+      }
+      if (isItemInWishlist) {
+        setWishlistBtnText("Go To Wishist");
+      }
     } else {
-      cartDispatch({
-        type: "ADD_TO_CART",
-        payload: product,
-      });
-      setAlert({ alert: true, alertText: "Product Added To Cart" });
+      setCartBtnText("Add To Cart");
+      setWishlistBtnText("Add To Wishist");
     }
-    setCartBtnText("Go To Cart");
+  }, [isItemInCart, isAuth]);
+  const addToCartHandler = (product) => {
+    if (isAuth) {
+      if (isItemInCart) {
+        navigate("/cart");
+      } else {
+        cartDispatch({
+          type: "ADD_TO_CART",
+          payload: product,
+        });
+        setAlert({ alert: true, alertText: "Product Added To Cart" });
+      }
+      setCartBtnText("Go To Cart");
+    } else {
+      navigate("/login");
+    }
   };
 
   const isItemInWishlist = findItem(wishlist, _id);
   const addToWishlistHandler = (product) => {
-    if (isItemInWishlist) {
-      navigate("/wishlist");
-    } else {
-      wishlistDispatch({
-        type: "ADD_TO_WISHLIST",
-        payload: product,
-      });
+    if (isAuth) {
+      if (isItemInWishlist) {
+        navigate("/wishlist");
+      } else {
+        wishlistDispatch({
+          type: "ADD_TO_WISHLIST",
+          payload: product,
+        });
 
-      setAlert({ alert: true, alertText: "Product Added To Wishlist" });
+        setAlert({ alert: true, alertText: "Product Added To Wishlist" });
+      }
+      setWishlistBtnText("Go To Wishist");
+    } else {
+      navigate("/login");
     }
-    setWishlistBtnText("Go To Wishist");
   };
 
   useEffect(() => {

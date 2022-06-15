@@ -1,7 +1,7 @@
 import logo from "../../assets/nav-logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useFilter } from "../../context/filterContext";
-import { useAuth } from "../../context";
+import { useAuth, useCart, useWishlist } from "../../context";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import "./navbar.css";
@@ -12,6 +12,13 @@ const Navbar = () => {
     auth: { isAuth },
     setAuth,
   } = useAuth();
+
+  const {
+    cartState: { cartItem },
+  } = useCart();
+  const {
+    wishlistState: { wishlist },
+  } = useWishlist();
 
   const logOutHandler = () => {
     toast.success("Logout Succesfully");
@@ -94,11 +101,18 @@ const Navbar = () => {
                 <Link to="/wishlist">
                   <i className="bi bi-heart"></i>
                 </Link>
+                {wishlist.length > 0 && isAuth && (
+                  <p className="gray-text badge-icon">{wishlist.length}</p>
+                )}
               </button>
               <button className="btn-icon">
                 <Link to="/cart">
                   <i className="bi bi-cart"></i>
                 </Link>
+
+                {cartItem.length > 0 && isAuth && (
+                  <p className="gray-text badge-icon">{cartItem.length}</p>
+                )}
               </button>
               <button
                 className="bi bi-person btn-icon"
