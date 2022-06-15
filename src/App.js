@@ -1,5 +1,4 @@
 import "./App.css";
-
 import { Home, Login, Wishlist, Cart, Product, SignUp } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
