@@ -1,44 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
-import { toast } from "react-toastify";
-import "./auth.css";
 import axios from "axios";
-import { useAuth } from "../../context/authContext";
-export function Login() {
-  const [email, setEmail] = useState("");
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "./auth.css";
 
-  const [password, setPassword] = useState("");
-
+export function SignUp() {
+  const [name, setName] = useState("harshit");
+  const [email, setEmail] = useState("harshit@gmail.com");
+  const [password, setPassword] = useState("1234");
   const [showPassword, setShowPassword] = useState("password");
-
-  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
 
-  const logInHandler = async () => {
+  const signupHandler = async () => {
     const body = {
       email: email,
       password: password,
+      name: name,
+      lastName: "heyhey",
     };
     try {
-      const response = await axios.post("/api/auth/login", body);
+      const response = await axios.post("/api/auth/signup", body);
       localStorage.setItem("token", response.data.encodedToken);
-      if (response.data.encodedToken) {
-        toast.success("login Succesfully");
-        setAuth(() => ({
-          token: response.data.encodedToken,
-          isAuth: true,
-        }));
-        setTimeout(() => {
-          navigate("/");
-        }, 2500);
-      } else {
-        toast.error("Wrong email or password try again!");
-      }
+      toast.success("Sign Up Succesfully");
+      setTimeout(() => {
+        navigate("/login");
+      }, 2500);
     } catch (error) {
       console.log(error);
-      toast.error("Unable To Login Try Again Later");
+      toast.error("Failed to SignUp try Again");
     }
   };
 
@@ -47,14 +39,22 @@ export function Login() {
       <main>
         <div className="form-container">
           <div className="form-info">
-            <p className="heading-x-lg text-center">Login</p>
+            <p className="heading-x-lg text-center">Join-us</p>
             <div className="form-input">
               <div className="input-box">
-                <label className="text-medium">Email Address</label>
+                <label className="text-medium">Full name</label>
+                <input
+                  onChange={(e) => setName(e.target.value)}
+                  type="text"
+                  name="name"
+                  placeholder="Monkey D luffy"
+                />
+              </div>
+              <div className="input-box">
+                <label className="text-medium">Email address</label>
                 <input
                   type="email"
                   name="email"
-                  value={email}
                   placeholder="demo@yahoo.com"
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -64,7 +64,6 @@ export function Login() {
                 <input
                   type={showPassword}
                   name="password"
-                  value={password}
                   placeholder="*******"
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -83,28 +82,26 @@ export function Login() {
                   ></i>
                 </button>
               </div>
-
+              <div className="space-between forget-pass">
+                <span>
+                  <label className="text-medium">
+                    <input type="checkbox" /> I accept all term & condition
+                  </label>
+                </span>
+              </div>
               <div className="form-btn">
                 <button
                   className="btn btn-outline"
-                  onClick={() => logInHandler()}
+                  onClick={() => signupHandler()}
                 >
-                  Log In
-                </button>
-                <button
-                  className="btn btn-outline guest-btn"
-                  onClick={() => {
-                    setEmail("user@gmail.com");
-                    setPassword("123456");
-                  }}
-                >
-                  Log In As Guest
+                  Sign Up
                 </button>
               </div>
+
               <div className="new-ac">
-                <Link to="/signup">
+                <Link to="/login">
                   <p className="text-center">
-                    Create new account
+                    Already have an account
                     <i className="bi bi-chevron-compact-right"></i>
                   </p>
                 </Link>

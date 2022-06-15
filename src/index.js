@@ -5,6 +5,7 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import {
+  AuthProvider,
   CartProvider,
   FilterContextProvider,
   WishlistProvider,
@@ -14,15 +15,17 @@ makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <FilterContextProvider>
-      <CartProvider>
-        <WishlistProvider>
-          <Router>
-            <App />
-          </Router>
-        </WishlistProvider>
-      </CartProvider>
-    </FilterContextProvider>
+    <AuthProvider>
+      <FilterContextProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <Router>
+              <App />
+            </Router>
+          </WishlistProvider>
+        </CartProvider>
+      </FilterContextProvider>
+    </AuthProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
