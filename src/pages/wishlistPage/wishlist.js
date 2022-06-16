@@ -1,7 +1,6 @@
 import { Navbar } from "../../components";
 import { useWishlist } from "../../context/wishlistContext";
 import { WishCard } from "./components/wishCard";
-import { empty_img } from "../../assets";
 
 export function Wishlist() {
   const { wishlistState } = useWishlist();
