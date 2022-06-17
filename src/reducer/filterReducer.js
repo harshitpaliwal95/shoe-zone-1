@@ -31,7 +31,6 @@ export const filterReducer = (state, { type, payload }) => {
         },
       };
     case "SEARCH":
-      console.log(payload, state.product);
       return {
         ...state,
         searchBy: payload,
@@ -40,7 +39,7 @@ export const filterReducer = (state, { type, payload }) => {
       for (let cates in category) {
         category[cates] = false;
       }
-      return { ...state, sortBy: null, rating: "1" };
+      return { ...state, sortBy: null, rating: 1 };
     default:
       return state;
   }

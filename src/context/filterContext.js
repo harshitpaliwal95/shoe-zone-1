@@ -5,7 +5,7 @@ const FilterContext = createContext();
 const FilterContextProvider = ({ children }) => {
   const initialState = {
     product: [],
-    shortBy: null,
+    sortBy: null,
     searchBy: null,
     rating: 1,
     category: {
