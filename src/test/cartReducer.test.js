@@ -77,7 +77,6 @@ describe("testing cart reducer", () => {
     };
 
     const state = cartReducer(initial, action);
-    console.log(state);
 
     expect(state).toEqual({
       cartItem: [
