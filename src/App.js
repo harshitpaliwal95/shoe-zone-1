@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import { ToastContainer } from "react-toastify";
 import { ProtectedRoute } from "./hook/protectedRoute";
+import { Footer } from "./components";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
