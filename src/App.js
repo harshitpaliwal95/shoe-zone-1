@@ -7,6 +7,7 @@ import {
   Product,
   SignUp,
   Order,
+  Profile,
 } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -51,6 +52,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Order />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
