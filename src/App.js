@@ -1,5 +1,13 @@
 import "./App.css";
-import { Home, Login, Wishlist, Cart, Product, SignUp } from "./pages/index";
+import {
+  Home,
+  Login,
+  Wishlist,
+  Cart,
+  Product,
+  SignUp,
+  Order,
+} from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import { ToastContainer } from "react-toastify";
@@ -35,6 +43,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Product />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/order"
+          element={
+            <ProtectedRoute>
+              <Order />
             </ProtectedRoute>
           }
         />

@@ -127,7 +127,16 @@ const Navbar = () => {
               ></button>
               <div className={`drop-box ${dropDown ? "show-box" : ""}`}>
                 {isAuth ? (
-                  <p onClick={() => logOutHandler()}>Logout</p>
+                  <>
+                    <Link to="/profile">
+                      <p>Profile</p>
+                    </Link>
+
+                    <Link to="/order">
+                      <p>Orders</p>
+                    </Link>
+                    <p onClick={() => logOutHandler()}>Logout</p>
+                  </>
                 ) : (
                   <>
                     <Link to="/login">
