@@ -1,4 +1,5 @@
 import { useCart } from "../../../../context/cartContext";
+import { displayRazorpay } from "../../checkout";
 
 export const PriceBox = () => {
   const { cartState } = useCart();
@@ -12,7 +13,8 @@ export const PriceBox = () => {
   const ProductAmount = cartItem.reduce(ProductAmountReducer, 0);
 
   const AmountReducer = (pre, cur) => pre + cur.quantity * cur.price;
-  const totalAmount = cartItem.reduce(AmountReducer, 1000);
+  let totalAmount = cartItem.reduce(AmountReducer, 1000);
+  totalAmount -= 1999;
 
   return (
     <div className="checkout-box">
@@ -34,12 +36,17 @@ export const PriceBox = () => {
         </div>
         <div className="space-between">
           <h3>Total Amount</h3>
-          <h3>₹{totalAmount - 1999}</h3>
+          <h3>₹{totalAmount}</h3>
         </div>
         <p className="gray-text save-lable">
           You will save ₹2000 on this order
         </p>
-        <button className="btn btn-dark">PLACE ORDER</button>
+        <button
+          className="btn btn-dark"
+          onClick={() => displayRazorpay(totalAmount)}
+        >
+          PLACE ORDER
+        </button>
       </div>
     </div>
   );
