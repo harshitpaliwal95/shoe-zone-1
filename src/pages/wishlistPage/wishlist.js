@@ -16,6 +16,10 @@ export function Wishlist() {
         </div>
       )}
       <section className="main-box wishlist-box">
+        {wishlist.length !== 0 && (
+          <h1 className="place-text">Wishlist Items</h1>
+        )}
+
         <div className="checkout-layout grid-three">
           {wishlist.map((product) => (
             <WishCard product={product} key={product._id} />
