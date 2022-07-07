@@ -16,7 +16,10 @@ export function Login() {
 
   const navigate = useNavigate();
 
-  const logInHandler = async () => {
+  const logInHandler = async (
+    email = "user@gmail.com",
+    password = "123456"
+  ) => {
     const body = {
       email: email,
       password: password,
@@ -87,7 +90,7 @@ export function Login() {
               <div className="form-btn">
                 <button
                   className="btn btn-outline"
-                  onClick={() => logInHandler()}
+                  onClick={() => logInHandler(email, password)}
                 >
                   Log In
                 </button>
@@ -96,6 +99,7 @@ export function Login() {
                   onClick={() => {
                     setEmail("user@gmail.com");
                     setPassword("123456");
+                    logInHandler();
                   }}
                 >
                   Log In As Guest
