@@ -38,6 +38,8 @@ export const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const isItemInCart = findItem(cartItem, _id);
+  const isItemInWishlist = findItem(wishlist, _id);
+
   useEffect(() => {
     if (isAuth) {
       if (isItemInCart) {
@@ -50,7 +52,7 @@ export const ProductCard = ({ product }) => {
       setCartBtnText("Add To Cart");
       setWishlistBtnText("Add To Wishist");
     }
-  }, [isItemInCart, isAuth]);
+  }, [isItemInCart, isAuth, isItemInWishlist]);
   const addToCartHandler = (product) => {
     if (isAuth) {
       if (isItemInCart) {
@@ -68,7 +70,6 @@ export const ProductCard = ({ product }) => {
     }
   };
 
-  const isItemInWishlist = findItem(wishlist, _id);
   const addToWishlistHandler = (product) => {
     if (isAuth) {
       if (isItemInWishlist) {
@@ -104,7 +105,10 @@ export const ProductCard = ({ product }) => {
         />
       </div>
       {latest ? <div className="card-badge">new</div> : <></>}
-      <div className="card-comp-contant">
+      <div
+        className="card-comp-contant"
+        onClick={() => navigate(`/product/${_id}`)}
+      >
         <h2 className="card-h2">{productName}</h2>
         <p>{categoryName}'s Shoes</p>
         <h3 className="card-h3">by Nike</h3>

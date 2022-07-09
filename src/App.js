@@ -1,4 +1,3 @@
-import "./App.css";
 import {
   Home,
   Login,
@@ -8,6 +7,7 @@ import {
   SignUp,
   Order,
   Profile,
+  SingleProduct,
 } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
@@ -64,6 +64,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/product/:id" element={<SingleProduct />} />
         <Route path="/mockman" element={<Mockman />} />
       </Routes>
       <Footer />

@@ -6,3 +6,4 @@ export { Cart } from "./cartPage/cart";
 export { Product } from "./productPage/product";
 export { Order } from "./orderPage/order";
 export { Profile } from "./profilePage/profile";
+export { SingleProduct } from "./singleProduct/singleProduct";

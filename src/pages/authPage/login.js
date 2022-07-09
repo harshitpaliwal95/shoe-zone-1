@@ -12,8 +12,7 @@ export function Login() {
 
   const [showPassword, setShowPassword] = useState("password");
 
-  const { auth, setAuth } = useAuth();
-  console.log(auth);
+  const { setAuth } = useAuth();
 
   const navigate = useNavigate();
 

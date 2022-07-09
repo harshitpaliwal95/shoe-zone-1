@@ -14,9 +14,8 @@ export function SignUp() {
   const [showPassword, setShowPassword] = useState("password");
 
   const navigate = useNavigate();
-  const { auth, setAuth } = useAuth();
+  const { setAuth } = useAuth();
 
-  console.log(auth, "signup");
   const signupHandler = async () => {
     const body = {
       email: email,

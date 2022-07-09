@@ -1,10 +1,14 @@
+import { useEffect } from "react";
 import { useWishlist } from "../../context/wishlistContext";
+import { ScrollToTop } from "../../hook/scrollToTop";
 import { WishCard } from "./components/wishCard";
 
 export function Wishlist() {
   const { wishlistState } = useWishlist();
   const { wishlist } = wishlistState;
-
+  useEffect(() => {
+    ScrollToTop();
+  }, []);
   return (
     <>
       {wishlist.length === 0 && (

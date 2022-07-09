@@ -4,20 +4,26 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./home.css";
 import { Link } from "react-router-dom";
+import { ScrollToTop } from "../../hook/scrollToTop";
+import { useFilter } from "../../context/filterContext";
 
 export function Home() {
   const [product, setProduct] = useState([]);
+  const { dispatch } = useFilter();
 
   useEffect(() => {
+    ScrollToTop();
     (async () => {
       try {
         const response = await axios.get("/api/products");
         setProduct(response.data.products);
+
+        dispatch({ type: "DEFAULT", payload: response.data.products });
       } catch (error) {
         console.error(error.message);
       }
     })();
-  }, []);
+  }, [dispatch]);
   const scrollEl = useRef(null);
 
   const scroll = (scrollOffset) => {

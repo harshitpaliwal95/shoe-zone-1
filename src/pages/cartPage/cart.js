@@ -2,9 +2,14 @@ import { CartCard, PriceBox } from "./components";
 import {} from "../../components";
 import "./cart.css";
 import { useCart } from "../../context/cartContext";
+import { useEffect } from "react";
+import { ScrollToTop } from "../../hook/scrollToTop";
 export function Cart() {
   const { cartState } = useCart();
   const { cartItem } = cartState;
+  useEffect(() => {
+    ScrollToTop();
+  }, []);
   return (
     <>
       <section className="main-box">

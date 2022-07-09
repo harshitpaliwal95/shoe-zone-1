@@ -10,11 +10,13 @@ import {
   ratingSlider,
   searchBy,
 } from "../../utils";
+import { ScrollToTop } from "../../hook/scrollToTop";
 
 export function Product() {
   const { state, dispatch } = useFilter();
 
   useEffect(() => {
+    ScrollToTop();
     (async () => {
       try {
         const response = await axios.get("/api/products");
