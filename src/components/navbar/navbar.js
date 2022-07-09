@@ -128,13 +128,14 @@ const Navbar = () => {
               <div className={`drop-box ${dropDown ? "show-box" : ""}`}>
                 {isAuth ? (
                   <>
-                    <Link to="/profile">
+                    {/* Feature under development */}
+                    {/* <Link to="/profile">
                       <p>Profile</p>
                     </Link>
 
                     <Link to="/order">
                       <p>Orders</p>
-                    </Link>
+                    </Link> */}
                     <p onClick={() => logOutHandler()}>Logout</p>
                   </>
                 ) : (
