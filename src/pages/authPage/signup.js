@@ -5,6 +5,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./auth.css";
+import { useAuth } from "../../context/authContext";
 
 export function SignUp() {
   const [name, setName] = useState("harshit");
@@ -13,23 +14,31 @@ export function SignUp() {
   const [showPassword, setShowPassword] = useState("password");
 
   const navigate = useNavigate();
+  const { auth, setAuth } = useAuth();
 
+  console.log(auth, "signup");
   const signupHandler = async () => {
     const body = {
       email: email,
       password: password,
       name: name,
-      lastName: "heyhey",
+      lastName: "",
     };
     try {
       const response = await axios.post("/api/auth/signup", body);
       localStorage.setItem("token", response.data.encodedToken);
       toast.success("Sign Up Succesfully");
+      setAuth((pre) => ({
+        ...pre,
+        token: response.data.encodedToken,
+        isAuth: true,
+        useName: name,
+        userEmail: email,
+      }));
       setTimeout(() => {
-        navigate("/login");
+        navigate("/");
       }, 2500);
     } catch (error) {
-      console.log(error);
       toast.error("Failed to SignUp try Again");
     }
   };

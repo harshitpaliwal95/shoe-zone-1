@@ -12,14 +12,12 @@ export function Login() {
 
   const [showPassword, setShowPassword] = useState("password");
 
-  const { setAuth } = useAuth();
+  const { auth, setAuth } = useAuth();
+  console.log(auth);
 
   const navigate = useNavigate();
 
-  const logInHandler = async (
-    email = "user@gmail.com",
-    password = "123456"
-  ) => {
+  const logInHandler = async (email, password) => {
     const body = {
       email: email,
       password: password,
@@ -29,9 +27,12 @@ export function Login() {
       localStorage.setItem("token", response.data.encodedToken);
       if (response.data.encodedToken) {
         toast.success("login Succesfully");
-        setAuth(() => ({
+        setAuth((pre) => ({
+          ...pre,
           token: response.data.encodedToken,
           isAuth: true,
+          useName: pre.userName ?? "harshit",
+          userEmail: email,
         }));
         setTimeout(() => {
           navigate("/");
@@ -99,7 +100,7 @@ export function Login() {
                   onClick={() => {
                     setEmail("user@gmail.com");
                     setPassword("123456");
-                    logInHandler();
+                    logInHandler("user@gmail.com", "123456");
                   }}
                 >
                   Log In As Guest

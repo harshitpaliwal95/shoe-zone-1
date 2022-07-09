@@ -33,7 +33,7 @@ export function Home() {
             Free Shipping + Returns, Free Membership, Exclusive Products
           </span>
           <button className="user-ac-btn join-btn">
-            <Link to="/join">Join Us</Link>
+            <Link to="/login">Join Us</Link>
           </button>
         </div>
         <div className="home-img card-comp-img">
