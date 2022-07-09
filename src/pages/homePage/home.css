@@ -15,6 +15,7 @@
 }
 .home-img {
   margin: 0rem 2rem 2rem 2rem;
+  min-height: 45rem;
   display: relative;
   cursor: pointer;
 }
@@ -102,6 +103,7 @@
     padding: 1rem;
   }
   .home-img {
+    min-height: auto;
     margin: 0rem;
   }
   /* popular section */
