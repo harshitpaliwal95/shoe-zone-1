@@ -3,9 +3,9 @@ import { useWishlist } from "../../context/wishlistContext";
 import { useNavigate } from "react-router-dom";
 import { findItem } from "../../utils";
 import "./card.css";
-import { Alert } from "..";
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context";
+import { toast } from "react-toastify";
 
 export const ProductCard = ({ product }) => {
   const {
@@ -19,10 +19,6 @@ export const ProductCard = ({ product }) => {
     rating,
   } = product;
 
-  const [alert, setAlert] = useState({ alert: false, alertText: "" });
-  const [cartBtnText, setCartBtnText] = useState("Add To Cart");
-  const [wishlistBtnText, setWishlistBtnText] = useState("Add To Wishlist");
-
   const {
     wishlistState: { wishlist },
     wishlistDispatch,
@@ -35,6 +31,8 @@ export const ProductCard = ({ product }) => {
     auth: { isAuth },
   } = useAuth();
 
+  const [cartBtnText, setCartBtnText] = useState("Add To Cart");
+  const [wishlistBtnText, setWishlistBtnText] = useState("Add To Wishlist");
   const navigate = useNavigate();
 
   const isItemInCart = findItem(cartItem, _id);
@@ -62,7 +60,7 @@ export const ProductCard = ({ product }) => {
           type: "ADD_TO_CART",
           payload: product,
         });
-        setAlert({ alert: true, alertText: "Product Added To Cart" });
+        toast.success("Product Added To Cart");
       }
       setCartBtnText("Go To Cart");
     } else {
@@ -79,8 +77,7 @@ export const ProductCard = ({ product }) => {
           type: "ADD_TO_WISHLIST",
           payload: product,
         });
-
-        setAlert({ alert: true, alertText: "Product Added To Wishlist" });
+        toast.success("Product Added To Wishlist");
       }
       setWishlistBtnText("Go To Wishist");
     } else {
@@ -88,15 +85,8 @@ export const ProductCard = ({ product }) => {
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAlert({ alert: false });
-    }, 1500);
-  }, [alert.alert]);
-
   return (
     <div key={_id} className="card-component">
-      {alert.alert && <Alert text={alert.alertText} />}
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"

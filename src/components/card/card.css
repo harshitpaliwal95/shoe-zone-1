@@ -12,6 +12,9 @@
   transform: scale(1.07);
   transition: 1s;
 }
+.card-comp-contant {
+  cursor: pointer;
+}
 @media only screen and (max-width: 600px) {
   .card-component {
     justify-content: space-between;
