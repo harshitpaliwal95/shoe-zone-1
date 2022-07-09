@@ -1,5 +1,5 @@
 import { CartCard, PriceBox } from "./components";
-import { Navbar } from "../../components";
+import {} from "../../components";
 import "./cart.css";
 import { useCart } from "../../context/cartContext";
 export function Cart() {
@@ -7,7 +7,6 @@ export function Cart() {
   const { cartItem } = cartState;
   return (
     <>
-      <Navbar />
       <section className="main-box">
         {cartItem.length === 0 && (
           <div className="empty-box">

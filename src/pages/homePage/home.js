@@ -1,4 +1,4 @@
-import { Navbar, ProductCard } from "../../components";
+import { ProductCard } from "../../components";
 import { mainImg, giftImgOne, giftImgTwo } from "../../assets";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
@@ -25,8 +25,7 @@ export function Home() {
   };
 
   return (
-    <div>
-      <Navbar />
+    <>
       <main className="main-home">
         <div className="head-offer">
           <span className="text-medium text-center">
@@ -108,6 +107,6 @@ export function Home() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }

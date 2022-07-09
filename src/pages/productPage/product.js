@@ -1,4 +1,4 @@
-import { Navbar, ProductCard, Filter, Loader } from "../../components";
+import { ProductCard, Filter, Loader } from "../../components";
 import "./product.css";
 import { useFilter } from "../../context/filterContext";
 import axios from "axios";
@@ -37,8 +37,7 @@ export function Product() {
   const searchProduct = searchBy(newFilterData, state.searchBy);
 
   return (
-    <div>
-      <Navbar />
+    <>
       <section className="main-box">
         <Filter />
         <main className="main-product">
@@ -50,6 +49,6 @@ export function Product() {
           </div>
         </main>
       </section>
-    </div>
+    </>
   );
 }

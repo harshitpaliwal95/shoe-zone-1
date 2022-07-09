@@ -13,11 +13,12 @@ import { Routes, Route } from "react-router-dom";
 import Mockman from "mockman-js";
 import { ToastContainer } from "react-toastify";
 import { ProtectedRoute } from "./hook/protectedRoute";
-import { Footer } from "./components";
+import { Footer, Navbar } from "./components";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Home />} />
