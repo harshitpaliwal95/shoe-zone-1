@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { AddressContent } from "./addressContent";
 import { ProfileContent } from "./profileContent";
 
 export const UserInfoBox = () => {
@@ -21,7 +22,7 @@ export const UserInfoBox = () => {
         </p>
       </div>
       <div className="user-info">
-        {activeTab === "profile" ? <ProfileContent /> : null}
+        {activeTab === "profile" ? <ProfileContent /> : <AddressContent />}
       </div>
     </section>
   );

@@ -58,3 +58,9 @@
 .profile-logout-btn {
   margin-top: 2rem;
 }
+.address-box p {
+  padding-bottom: 0.5rem;
+}
+.address-box .btn {
+  margin-top: 1rem;
+}
