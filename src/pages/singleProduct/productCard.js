@@ -1,23 +1,12 @@
-import { useCart } from "../../context/cartContext";
-import { useWishlist } from "../../context/wishlistContext";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { findItem } from "../../utils";
-import "./card.css";
-import { useState, useEffect } from "react";
-import { useAuth } from "../../context";
 import { toast } from "react-toastify";
+import { useAuth, useCart, useWishlist } from "../../context";
+import { findItem } from "../../utils";
 
 export const ProductCard = ({ product }) => {
-  const {
-    _id,
-    image,
-    latest,
-    productName,
-    categoryName,
-    price,
-    discount,
-    rating,
-  } = product;
+  const { _id, image, productName, categoryName, price, discount, rating } =
+    product;
 
   const {
     wishlistState: { wishlist },
@@ -86,24 +75,21 @@ export const ProductCard = ({ product }) => {
   };
 
   return (
-    <div key={_id} className="card-component">
-      <div className="card-comp-img img-height">
-        <img
-          className="card-top-img img-height"
-          src={image}
-          alt="product img"
-        />
+    <>
+      <div className="img-box">
+        <img src={image} alt="productImg"></img>
       </div>
-      {latest ? <div className="card-badge">new</div> : <></>}
-      <div
-        className="card-comp-contant"
-        onClick={() => navigate(`/product/${_id}`)}
-      >
-        <h2 className="card-h2">{productName}</h2>
-        <p>{categoryName}'s Shoes</p>
-        <h3 className="card-h3">by Nike</h3>
-        <p className="card-para"></p>
-        <h4>RS {price}</h4>
+      <div className="product-content">
+        <p className="main-heading">{productName}</p>
+        <p className="text-lg">{categoryName}'s shoes</p>
+        <p className="gray-text text-medium">by Nike</p>
+        <p className="text-medium">
+          Familiar but always fresh, the iconic Air Jordan 1 is remastered for
+          today's sneakerhead culture. This Retro High OG version goes all in
+          with premium leather, comfortable cushioning and classic design
+          details.
+        </p>
+        <h3>RS {price}</h3>
         <p className="discount-tag">{discount}% off</p>
         <div className="rating-box rating-box-sm rating-comp">
           <div>
@@ -112,22 +98,21 @@ export const ProductCard = ({ product }) => {
           <div>|</div>
           <div>5</div>
         </div>
+        <div className="action-btn-box">
+          <button
+            className="btn btn-outline"
+            onClick={() => addToCartHandler(product)}
+          >
+            {cartBtnText}
+          </button>
+          <button
+            className="btn btn-outline"
+            onClick={() => addToWishlistHandler(product)}
+          >
+            {wishlistBtnText}
+          </button>
+        </div>
       </div>
-      <div className="card-btn_footer">
-        <button
-          className="btn btn-outline"
-          onClick={() => addToCartHandler(product)}
-        >
-          {cartBtnText}
-        </button>
-
-        <button
-          className="btn btn-outline"
-          onClick={() => addToWishlistHandler(product)}
-        >
-          {wishlistBtnText}
-        </button>
-      </div>
-    </div>
+    </>
   );
 };

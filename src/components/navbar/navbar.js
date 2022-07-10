@@ -4,6 +4,7 @@ import { useFilter } from "../../context/filterContext";
 import { useAuth, useCart, useWishlist } from "../../context";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
+import { NavSlider } from "../sliders/navSlider";
 import "./navbar.css";
 
 const Navbar = () => {
@@ -30,13 +31,19 @@ const Navbar = () => {
   };
 
   const [dropDown, setDropDown] = useState(false);
+  const [navSideBar, setNavSideBar] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => setDropDown(false), [pathname, isAuth]);
 
+  useEffect(() => {
+    setNavSideBar(false);
+  }, [pathname]);
+
   const navigate = useNavigate();
   return (
     <div>
+      {navSideBar && <NavSlider />}
       <header>
         <div className="user-ac"></div>
         <nav className="navbar">
@@ -120,7 +127,16 @@ const Navbar = () => {
               ></button>
               <div className={`drop-box ${dropDown ? "show-box" : ""}`}>
                 {isAuth ? (
-                  <p onClick={() => logOutHandler()}>Logout</p>
+                  <>
+                    <Link to="/profile">
+                      <p>Profile</p>
+                    </Link>
+
+                    <Link to="/order">
+                      <p>Orders</p>
+                    </Link>
+                    <p onClick={() => logOutHandler()}>Logout</p>
+                  </>
                 ) : (
                   <>
                     <Link to="/login">
@@ -132,7 +148,12 @@ const Navbar = () => {
                   </>
                 )}
               </div>
-              <button className="btn-icon burger">
+              <button
+                className="btn-icon burger"
+                onClick={() => {
+                  setNavSideBar((pre) => !pre);
+                }}
+              >
                 <i className="bi bi-list"></i>
               </button>
             </div>

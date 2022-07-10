@@ -1,8 +1,8 @@
-import { Navbar, ProductCard, Filter, Loader } from "../../components";
+import { ProductCard, Filter, Loader } from "../../components";
 import "./product.css";
 import { useFilter } from "../../context/filterContext";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import {
   sortData,
   filterByCategory,
@@ -10,28 +10,27 @@ import {
   ratingSlider,
   searchBy,
 } from "../../utils";
+import { ScrollToTop } from "../../hook/scrollToTop";
 
 export function Product() {
   const { state, dispatch } = useFilter();
-  const [loader, setLoader] = useState(false);
 
   useEffect(() => {
+    ScrollToTop();
     (async () => {
-      setLoader(true);
       try {
         const response = await axios.get("/api/products");
 
         if (response) {
           setTimeout(() => {
             dispatch({ type: "DEFAULT", payload: response.data.products });
-            setLoader(false);
           }, 800);
         }
       } catch (error) {
         console.error(error.message);
       }
     })();
-  }, []);
+  }, [dispatch]);
 
   const newSortdata = sortData(state.product, state.sortBy);
   const newCategory = filterByCategory(newSortdata, state.category);
@@ -40,8 +39,7 @@ export function Product() {
   const searchProduct = searchBy(newFilterData, state.searchBy);
 
   return (
-    <div>
-      <Navbar />
+    <>
       <section className="main-box">
         <Filter />
         <main className="main-product">
@@ -53,6 +51,6 @@ export function Product() {
           </div>
         </main>
       </section>
-    </div>
+    </>
   );
 }

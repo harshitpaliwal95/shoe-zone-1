@@ -6,3 +6,14 @@
   color: black;
   font-size: 1.4rem;
 }
+.wishlist-box {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+}
+.wishlist-box-placeholder {
+  margin-top: 6rem;
+}
+.place-text {
+  padding: 1rem;
+}
