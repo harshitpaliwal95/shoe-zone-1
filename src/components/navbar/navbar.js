@@ -131,10 +131,10 @@ const Navbar = () => {
                     <Link to="/profile">
                       <p>Profile</p>
                     </Link>
-
-                    <Link to="/order">
+                    {/* under development */}
+                    {/* <Link to="/order">
                       <p>Orders</p>
-                    </Link>
+                    </Link> */}
                     <p onClick={() => logOutHandler()}>Logout</p>
                   </>
                 ) : (
