@@ -33,7 +33,7 @@ export function Login() {
           ...pre,
           token: response.data.encodedToken,
           isAuth: true,
-          useName: pre.userName ?? "harshit",
+          userName: pre.userName ?? "harshit",
           userEmail: email,
         }));
         setTimeout(() => {
@@ -43,7 +43,6 @@ export function Login() {
         toast.error("Wrong email or password try again!");
       }
     } catch (error) {
-      console.log(error);
       toast.error("Unable To Login Try Again Later");
     }
   };
