@@ -3,7 +3,6 @@ import { useAuth } from "../../../context";
 
 export const ProfileContent = () => {
   const {
-    auth,
     auth: { userName, userEmail },
     setAuth,
   } = useAuth();
@@ -15,7 +14,9 @@ export const ProfileContent = () => {
       isAuth: false,
     }));
   };
-  console.log(auth, userName);
+
+  
+
   return (
     <>
       <div className="info-content">
