@@ -7,9 +7,7 @@ import { ScrollToTop } from "../../hook/scrollToTop";
 export function Cart() {
   const { cartState } = useCart();
   const { cartItem } = cartState;
-  useEffect(() => {
-    ScrollToTop();
-  }, []);
+  useEffect(ScrollToTop, []);
   return (
     <>
       <section className="main-box">

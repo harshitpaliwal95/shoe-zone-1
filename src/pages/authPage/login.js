@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./auth.css";
 import axios from "axios";
 import { useAuth } from "../../context/authContext";
+import { ScrollToTop } from "../../hook/scrollToTop";
 export function Login() {
   const [email, setEmail] = useState("");
 
@@ -13,6 +14,8 @@ export function Login() {
   const [showPassword, setShowPassword] = useState("password");
 
   const { setAuth } = useAuth();
+
+  useEffect(ScrollToTop, []);
 
   const navigate = useNavigate();
 

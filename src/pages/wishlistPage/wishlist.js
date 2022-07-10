@@ -6,9 +6,7 @@ import { WishCard } from "./components/wishCard";
 export function Wishlist() {
   const { wishlistState } = useWishlist();
   const { wishlist } = wishlistState;
-  useEffect(() => {
-    ScrollToTop();
-  }, []);
+  useEffect(ScrollToTop, []);
   return (
     <>
       {wishlist.length === 0 && (
