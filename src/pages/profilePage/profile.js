@@ -1,11 +1,13 @@
-import React from "react";
 import "./profile.css";
+import { UserInfoBox } from "./components/userInfoBox";
 
 export const Profile = () => {
   return (
     <>
       <main>
-        <section className="main-box profile-section"></section>
+        <section className="main-box profile-section">
+          <UserInfoBox />
+        </section>
       </main>
     </>
   );
