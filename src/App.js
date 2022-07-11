@@ -49,14 +49,7 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/product"
-          element={
-            <ProtectedRoute>
-              <Product />
-            </ProtectedRoute>
-          }
-        />
+        <Route path="/product" element={<Product />} />
         <Route
           path="/order"
           element={

@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar } from "../../components";
 import { useOrder } from "../../context";
+import { ScrollToTop } from "../../hook/scrollToTop";
 import "./order.css";
 
 export const Order = () => {
   const {
     order: { order, address },
   } = useOrder();
-
+  useEffect(ScrollToTop, []);
   return (
     <>
       <Navbar />
