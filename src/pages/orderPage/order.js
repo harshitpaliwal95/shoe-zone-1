@@ -1,29 +1,53 @@
 import React from "react";
 import { Navbar } from "../../components";
+import { useOrder } from "../../context";
 import "./order.css";
 
 export const Order = () => {
+  const {
+    order: { order, address },
+  } = useOrder();
+
   return (
     <>
       <Navbar />
-      {/* <div className="empty-box wishlist-box-placeholder">
-        <p className="heading-lg emptybox-text">No Orders</p>
-        <i className="bi bi-emoji-neutral"></i>
-      </div> */}
+      {order.length === 0 && (
+        <div className="empty-box wishlist-box-placeholder">
+          <p className="heading-lg emptybox-text">No Orders</p>
+          <i className="bi bi-emoji-neutral"></i>
+        </div>
+      )}
+
       <main>
         <section className="main-box wishlist-box order-Box">
-          <div className="order-item">
-            <div class="notification-list">
-              <div class="notify-img">
-                <img src="url.jpg" alt="demo img" />
-              </div>
-              <div class="notify-contant">
-                <p class="heading-lg">Air Jorden 4M MAX</p>
-                <p class="gray-text">Price - 9,999</p>
-                <p class="notify-time">2 minute ago</p>
+          {order.length !== 0 && (
+            <span className="heading-lg">Your Orders</span>
+          )}
+          {order.map((item) => (
+            <div className="order-item" key={item._id}>
+              <div className="notification-list">
+                <div className="notify-img">
+                  <img src={item.image} alt="demo img" />
+                </div>
+                <div className="notify-contant">
+                  <p className="heading-lg">{item.productName}</p>
+                  <p className="gray-text">Price - {item.price}</p>
+                  <p className="notify-time">2 minute ago</p>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+          {Object.keys(address).length !== 0 && (
+            <div className="order-address">
+              <h3>Deliver To</h3>
+              <p className="text-lg">{address.userName}</p>
+              <p>
+                {address.area}, {address.state}
+              </p>
+              <p>{address.city}</p>
+              <p>Phone No. - {address.phNumber}</p>
+            </div>
+          )}
         </section>
       </main>
     </>
