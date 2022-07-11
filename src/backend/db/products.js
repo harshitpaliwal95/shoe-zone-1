@@ -1,4 +1,3 @@
-import { v4 as uuid } from "uuid";
 import {
   nike_air_max_270,
   nike_air_zoom_AIR,
@@ -23,7 +22,7 @@ import {
 export const products = [
   // mens category
   {
-    _id: uuid(),
+    _id: "dfadfadf",
     productName: "Nike Air Max 270",
     price: 8999,
     image: nike_air_max_270,
@@ -33,7 +32,7 @@ export const products = [
     rating: 3,
   },
   {
-    _id: uuid(),
+    _id: "adfadfa",
     productName: "Nike Air Zoom 38 A.I.R.",
     price: 9100,
     image: nike_air_zoom_AIR,
@@ -43,7 +42,7 @@ export const products = [
     rating: 4,
   },
   {
-    _id: uuid(),
+    _id: "haadfadgh",
     productName: "Nike Air Max 90",
     price: 7000,
     image: nike_air_max_90,
@@ -53,7 +52,7 @@ export const products = [
     rating: 2,
   },
   {
-    _id: uuid(),
+    _id: "gdfadgtjrg",
     productName: "Nike Blazer Mid '77",
     price: 6500,
     image: nike_blazer_mid_77,
@@ -63,7 +62,7 @@ export const products = [
     rating: 3,
   },
   {
-    _id: uuid(),
+    _id: "sghfgarthtgnf",
     productName: "Nike Air  Force 1 07",
     price: 8000,
     image: Nike_air_force_107,
@@ -73,7 +72,7 @@ export const products = [
     rating: 4,
   },
   {
-    _id: uuid(),
+    _id: "affhthtd",
     productName: "Nike React Miler 2 Shiield",
     price: 7599,
     image: nike_react_miler,
@@ -83,7 +82,7 @@ export const products = [
     rating: 5,
   },
   {
-    _id: uuid(),
+    _id: "hjytaetadf",
     productName: "Nike Bassi JDI",
     price: 1000,
     image: nike_bassi_jdi,
@@ -93,7 +92,7 @@ export const products = [
     rating: 4,
   },
   {
-    _id: uuid(),
+    _id: "ghtrhad",
     productName: "Nike Air Max Terrace 90",
     price: 9999,
     image: nike_air_max_terrace_cape90,
@@ -104,7 +103,7 @@ export const products = [
   },
   // womesn category
   {
-    _id: uuid(),
+    _id: "gnzdfvarg",
     productName: "Nike Blazer Next Nature",
     price: 6999,
     image: nike_blazer_next_nature,
@@ -114,7 +113,7 @@ export const products = [
     rating: 2,
   },
   {
-    _id: uuid(),
+    _id: "hthadfdvb",
     productName: "Nike Pegasus trail 3",
     price: 7500,
     image: nike_pegasus_trail_3,
@@ -124,7 +123,7 @@ export const products = [
     rating: 3,
   },
   {
-    _id: uuid(),
+    _id: "hbfgadfar",
     productName: "Nike Air Force 1 Fantanka",
     price: 9000,
     image: Nike_air_force_1_fantanka,
@@ -134,7 +133,7 @@ export const products = [
     rating: 4,
   },
   {
-    _id: uuid(),
+    _id: "nhrtgyhcv",
     productName: "Nike Air Huarache",
     price: 8500,
     image: nike_air_huarache,
@@ -144,7 +143,7 @@ export const products = [
     rating: 5,
   },
   {
-    _id: uuid(),
+    _id: "tyhagffb",
     productName: "Nike Court Legacy Serena",
     price: 3000,
     image: nike_court_legacy,
@@ -155,7 +154,7 @@ export const products = [
   },
   // kids category
   {
-    _id: uuid(),
+    _id: "hargtrhfhvdf",
     productName: "Nike Air Max 90 LTR",
     price: 6495,
     image: nike_air_max_90_ltr,
@@ -165,7 +164,7 @@ export const products = [
     rating: 1,
   },
   {
-    _id: uuid(),
+    _id: "rtgyhfvarfg",
     productName: "Nike Point Lane",
     price: 7999,
     image: nike_point_lane,
@@ -175,7 +174,7 @@ export const products = [
     rating: 3,
   },
   {
-    _id: uuid(),
+    _id: "afrgafgaaf",
     productName: "Nike Air Max 2021",
     price: 7500,
     image: nike_air_max_2021,
@@ -185,7 +184,7 @@ export const products = [
     rating: 4,
   },
   {
-    _id: uuid(),
+    _id: "jytjgssfgfg",
     productName: "Nike Sunday Protect 3",
     price: 2995,
     image: nike_sunday_protect,
@@ -195,7 +194,7 @@ export const products = [
     rating: 2,
   },
   {
-    _id: uuid(),
+    _id: "ytghfsathfb",
     productName: "Nike Revolution 6 SE",
     price: 3495,
     image: nike_revolution_6_se,

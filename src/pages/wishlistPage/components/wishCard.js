@@ -2,9 +2,10 @@ import { useCart, useWishlist } from "../../../context";
 import { findItem } from "../../../utils";
 
 import { useState, useEffect } from "react";
-import { Alert } from "../../../components";
+
 import "./wishcard.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export const WishCard = ({ product }) => {
   const {
     _id,
@@ -22,7 +23,6 @@ export const WishCard = ({ product }) => {
     cartDispatch,
   } = useCart();
 
-  const [alert, setAlert] = useState({ alert: false, alertText: "" });
   const [btnText, setBtnText] = useState("Add To Cart");
   const navigate = useNavigate();
 
@@ -35,7 +35,7 @@ export const WishCard = ({ product }) => {
 
   const addToCartHandler = (product) => {
     if (isItemInCart) {
-      setAlert({ alert: true, alertText: "Product Already in your cart" });
+      toast.info("Product Already in your cart");
       navigate("/cart");
     } else {
       cartDispatch({
@@ -43,18 +43,12 @@ export const WishCard = ({ product }) => {
         payload: product,
       });
       setBtnText("Go To Cart");
-      setAlert({ alert: true, alertText: "Product Added To Cart" });
+      toast.success("Product added to cart");
     }
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setAlert({ alert: false });
-    }, 1500);
-  }, [alert.alert]);
   return (
     <div className="card-component">
-      {alert.alert && <Alert text={alert.alertText} />}
       <div className="card-comp-img img-height">
         <img
           className="card-top-img img-height"

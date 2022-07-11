@@ -1,23 +1,29 @@
-import { Navbar, ProductCard } from "../../components";
+import { ProductCard } from "../../components";
 import { mainImg, giftImgOne, giftImgTwo } from "../../assets";
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./home.css";
 import { Link } from "react-router-dom";
+import { ScrollToTop } from "../../hook/scrollToTop";
+import { useFilter } from "../../context/filterContext";
 
 export function Home() {
   const [product, setProduct] = useState([]);
+  const { dispatch } = useFilter();
 
   useEffect(() => {
+    ScrollToTop();
     (async () => {
       try {
         const response = await axios.get("/api/products");
         setProduct(response.data.products);
+
+        dispatch({ type: "DEFAULT", payload: response.data.products });
       } catch (error) {
         console.error(error.message);
       }
     })();
-  }, []);
+  }, [dispatch]);
   const scrollEl = useRef(null);
 
   const scroll = (scrollOffset) => {
@@ -25,15 +31,14 @@ export function Home() {
   };
 
   return (
-    <div>
-      <Navbar />
+    <>
       <main className="main-home">
         <div className="head-offer">
           <span className="text-medium text-center">
             Free Shipping + Returns, Free Membership, Exclusive Products
           </span>
           <button className="user-ac-btn join-btn">
-            <Link to="/join">Join Us</Link>
+            <Link to="/login">Join Us</Link>
           </button>
         </div>
         <div className="home-img card-comp-img">
@@ -108,6 +113,6 @@ export function Home() {
           </div>
         </div>
       </main>
-    </div>
+    </>
   );
 }

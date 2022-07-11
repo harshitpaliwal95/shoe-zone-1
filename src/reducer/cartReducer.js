@@ -31,6 +31,8 @@ export const cartReducer = (state, { type, payload }) => {
             : item
         ),
       };
+    case "EMPTY_CART":
+      return { ...state, cartItem: [] };
     default:
       return state;
   }

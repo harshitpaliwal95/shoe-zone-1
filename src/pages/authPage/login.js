@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import "./auth.css";
 import axios from "axios";
 import { useAuth } from "../../context/authContext";
+import { ScrollToTop } from "../../hook/scrollToTop";
 export function Login() {
   const [email, setEmail] = useState("");
 
@@ -14,9 +15,11 @@ export function Login() {
 
   const { setAuth } = useAuth();
 
+  useEffect(ScrollToTop, []);
+
   const navigate = useNavigate();
 
-  const logInHandler = async () => {
+  const logInHandler = async (email, password) => {
     const body = {
       email: email,
       password: password,
@@ -26,18 +29,20 @@ export function Login() {
       localStorage.setItem("token", response.data.encodedToken);
       if (response.data.encodedToken) {
         toast.success("login Succesfully");
-        setAuth(() => ({
+        setAuth((pre) => ({
+          ...pre,
           token: response.data.encodedToken,
           isAuth: true,
+          userName: pre.userName ?? "harshit",
+          userEmail: email,
         }));
         setTimeout(() => {
           navigate("/");
-        }, 2500);
+        }, 1800);
       } else {
         toast.error("Wrong email or password try again!");
       }
     } catch (error) {
-      console.log(error);
       toast.error("Unable To Login Try Again Later");
     }
   };
@@ -87,7 +92,7 @@ export function Login() {
               <div className="form-btn">
                 <button
                   className="btn btn-outline"
-                  onClick={() => logInHandler()}
+                  onClick={() => logInHandler(email, password)}
                 >
                   Log In
                 </button>
@@ -96,6 +101,7 @@ export function Login() {
                   onClick={() => {
                     setEmail("user@gmail.com");
                     setPassword("123456");
+                    logInHandler("user@gmail.com", "123456");
                   }}
                 >
                   Log In As Guest
