@@ -11,7 +11,7 @@ import {
   OrderProvider,
   WishlistProvider,
 } from "./context";
-// Call make Server
+// Call make Serve
 makeServer();
 
 ReactDOM.render(
